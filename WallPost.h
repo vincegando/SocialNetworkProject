@@ -8,6 +8,19 @@
 
 class WallPost {
 
+public:
+  WallPost(string post, time, string username);
+  string getPost();
+  void setPost(string post);
+  string getUsername();
+  void setUsername(string username);
+  //time getters and setters
+  string returnWallPost();
+private:
+  string post;
+  //time data type
+  string username;
+
 };
 
 
