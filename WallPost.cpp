@@ -12,6 +12,10 @@ WallPost::WallPost(string post, time, string username){
 
 }
 
+WallPost::~WallPost() {
+
+}
+
 string WallPost::getPost() {
   return this.post;
 }
@@ -28,4 +32,9 @@ void WallPost::setUsername(string username) {
   this.username = username;
 }
 
-//time setters and getters 
+//time setters and getters
+
+string WallPost::returnWallPost(); {
+  string result = this.post;
+  return result;
+}

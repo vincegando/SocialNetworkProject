@@ -10,6 +10,7 @@ class WallPost {
 
 public:
   WallPost(string post, time, string username);
+  ~WallPost();
   string getPost();
   void setPost(string post);
   string getUsername();
