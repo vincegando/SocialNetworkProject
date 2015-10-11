@@ -3,10 +3,10 @@
 #include "WallPost.h"
 #include <string>
 
-WallPost::WallPost(string post, time, string username){
-  this.post = post;
-  this.time = time;
-  this.username = username;
+WallPost::WallPost(std::string p, time, std::string u){
+  post = p;
+  time = time;
+  username = u;
 
 }
 
@@ -14,25 +14,25 @@ WallPost::~WallPost() {
 
 }
 
-string WallPost::getPost() {
-  return this.post;
+std::string WallPost::getPost() {
+  return post;
 }
 
-void WallPost::setPost(string post) {
-  this.post = post;
+void WallPost::setPost(std::string p) {
+  post = p;
 }
 
-string WallPost::getUsername() {
-  return this.username;
+std::string WallPost::getUsername() {
+  return username;
 }
 
-void WallPost::setUsername(string username) {
-  this.username = username;
+void WallPost::setUsername(std::string u) {
+  username = u;
 }
 
 //time setters and getters
 
-string WallPost::returnWallPost(); {
-  string result = this.post;
+std::string WallPost::returnWallPost(); {
+  std::string result = post;
   return result;
 }

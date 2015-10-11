@@ -5,22 +5,23 @@
 #ifndef SOCIALNETWORKPROJECT_WALLPOST_H
 #define SOCIALNETWORKPROJECT_WALLPOST_H
 
+#include <string>
 
 class WallPost {
 
 public:
-  WallPost(string post, time, string username);
+  WallPost(std::string p, time, std::string u);
   ~WallPost();
-  string getPost();
-  void setPost(string post);
-  string getUsername();
-  void setUsername(string username);
+  std::string getPost();
+  void setPost(std::string p);
+  std::string getUsername();
+  void setUsername(std::string u);
   //time getters and setters
-  string returnWallPost();
+  std::string returnWallPost();
 private:
-  string post;
+  std::string post;
   //time data type
-  string username;
+  std::string username;
 
 };
 
