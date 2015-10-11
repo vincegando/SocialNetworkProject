@@ -10,7 +10,9 @@
 
 class User {
 public:
-
+    void setFullName(std::string fn);
+    void setPassword(std::string p);
+    void setCity(std::string c);
 
 private:
     Wall wall;
@@ -18,6 +20,8 @@ private:
     std::string password;
     std::string fullName;
     std::string city;
+
+public:
 
 };
 
