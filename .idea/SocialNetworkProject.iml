@@ -5,6 +5,8 @@
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LinkedList.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/LinkedList.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Node.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Node.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Wall.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Wall.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WallPost.cpp" isTestSource="false" />
