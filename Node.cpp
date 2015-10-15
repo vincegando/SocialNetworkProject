@@ -5,7 +5,7 @@
 #include "Node.h"
 
 template <class X>
-Node<X>::Node(X val) {
+Node<X>::Node<X>(const X& val) {
 data= val;
 }
 template <class X>

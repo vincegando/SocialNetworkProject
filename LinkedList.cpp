@@ -1,11 +1,12 @@
 #include <iostream>
 
 #include "LinkedList.h"
-#include "Node.h";
+#include "Node.h"
 
 template <class X>
 LinkedList<X>::LinkedList() {
     head=NULL;
+    tail=NULL;
 }
 
 template <class X>
@@ -22,34 +23,26 @@ LinkedList<X>::~LinkedList() {
 
 
 template <class X>
-void LinkedList<X>::addElementToEnd(Node<X> *start, X val) {
+void LinkedList<X>::addElementToEnd(X val) {
     Node<X> *newNode= new Node<X>(val);
     newNode->next = NULL;
-    Node <X> *curr= start;
+    Node <X> *curr= head;
 
-    if (!curr){
+    if (curr == NULL){
         curr = newNode;
     }
-    while (curr->next) {
-        curr = curr->next;
+    else {
+        while (curr->next)
+        {
+            curr = curr->next;
+        }
     }
-    curr->next = newNode;
-    /*if (tail== NULL){
-        newnode-> next =tail; // equals to what tail points to
-        tail= newnode;
-        //head = newnode;
-        return;
-    }*/
-    /*tail->next = newnode;
-    tail= tail-> next;*/
+    curr->s = newNode;
+
 }
 
-template <class X>
-void LinkedList<X>::removeElement(Node<X> *start, X val){
 
-    Node<X> *curr = start;
-    
-}
+
 
 template <class X>
 void LinkedList<X>::print() {
@@ -61,4 +54,8 @@ void LinkedList<X>::print() {
 }
 
 // need to implement the iterate and returnelemlaterFUNCT    - HELP
+template <class X>
+// void LinkedList::removeElement(Node<X> val) {
+    
 
+}

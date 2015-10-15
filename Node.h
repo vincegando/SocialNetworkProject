@@ -8,19 +8,17 @@
 
 #include <iostream>
 #include <set>
-#include "LinkedList.h
+
 
 template <class X>
 class Node{
 public:
     void setData(X value);
     X getData();
+    Node<X>(const X& value);                       // constructor
 
     Node<X> *next;
     Node<X> *prev;
-    Node<X>(X);                       // constructor
-
-private:
     X data;
 };
 
