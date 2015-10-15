@@ -12,9 +12,9 @@ public:
     LinkedList() ;
     ~LinkedList() ;
 
-    void addElementEndofList(X val);
+    void addElementToEnd(Node<X> *start, X val);
 
-    void removeElement();
+    void removeElement(Node<X> *start, X val);
 
     void print();
 

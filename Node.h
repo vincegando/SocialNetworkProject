@@ -17,6 +17,7 @@ public:
     X getData();
 
     Node<X> *next;
+    Node<X> *prev;
     Node<X>(X);                       // constructor
 
 private:

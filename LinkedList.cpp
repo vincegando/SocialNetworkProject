@@ -5,7 +5,7 @@
 
 template <class X>
 LinkedList<X>::LinkedList() {
-    head=tail=NULL;
+    head=NULL;
 }
 
 template <class X>
@@ -22,21 +22,33 @@ LinkedList<X>::~LinkedList() {
 
 
 template <class X>
-void LinkedList<X>::addElementEndofList(X val) {
-    Node<X> *newnode= new Node<X>(val);
-    if (tail== NULL){
+void LinkedList<X>::addElementToEnd(Node<X> *start, X val) {
+    Node<X> *newNode= new Node<X>(val);
+    newNode->next = NULL;
+    Node <X> *curr= start;
+
+    if (!curr){
+        curr = newNode;
+    }
+    while (curr->next) {
+        curr = curr->next;
+    }
+    curr->next = newNode;
+    /*if (tail== NULL){
         newnode-> next =tail; // equals to what tail points to
         tail= newnode;
         //head = newnode;
         return;
-    }
-    tail->next = newnode;
-    tail= tail-> next;
+    }*/
+    /*tail->next = newnode;
+    tail= tail-> next;*/
 }
 
 template <class X>
-void LinkedList<X>::removeElement() {
+void LinkedList<X>::removeElement(Node<X> *start, X val){
 
+    Node<X> *curr = start;
+    
 }
 
 template <class X>
