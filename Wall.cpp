@@ -17,8 +17,7 @@ Wall::Wall(LinkedList<WallPost> l, string un){
 }
 
 Wall::~Wall() {
-    delete list;
-    delete username;
+
 }
 
 void Wall::newWallPost(string p, string u) {
