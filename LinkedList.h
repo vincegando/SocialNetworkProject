@@ -13,7 +13,7 @@ public:
     LinkedList(Node<X> *n);
     ~LinkedList();
 
-    void addElementToEnd(WallPost *val);
+    void addElementToEnd(X val);
 
     void removeElement(X val);
 
