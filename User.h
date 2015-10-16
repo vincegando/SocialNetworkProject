@@ -18,6 +18,7 @@ public:
     void setUsername(string x);
     ~User();
     User(Wall w, string un, string pass, string fn, string c);
+    void addWallPost
 
 private:
     Wall wall;
