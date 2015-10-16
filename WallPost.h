@@ -20,6 +20,7 @@ public:
     void setPost(string p);
     string getUsername();
     void setUsername(string user);
+    string ReturnWallPost();
 
 private:
 

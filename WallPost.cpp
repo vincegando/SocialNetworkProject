@@ -3,13 +3,12 @@
 #include "WallPost.h"
 #include <string>
 #include "time.h"
+#include <iostream>
 
 using namespace std;
-
 WallPost::WallPost(string p, string u){
   post = p;
   username = u;
-
 }
 
 WallPost::~WallPost() { }
@@ -29,4 +28,9 @@ string WallPost::getUsername() {
 void WallPost::setUsername(string user) {
   username = user;
 }
+
+string WallPost::ReturnWallPost() {
+  return getUsername() + getPost() + postTime;
+}
+
 
