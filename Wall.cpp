@@ -48,7 +48,7 @@ string Wall::writeEntireWall() {          //4E)
 }
 
 /*
-string Wall::readEntireWall() {
+string Wall::readEntireWall(string x) {
 
 }
 */

@@ -25,7 +25,7 @@ public:
     string getUsername();
     void setUsername(string u);
     string writeEntireWall();
-    string readEntireWall();
+    //string readEntireWall(string x);
 
 
 private:
