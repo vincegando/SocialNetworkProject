@@ -16,6 +16,8 @@ public:
     void setPassword(string p);
     void setCity(string c);
     void setUsername(string x);
+    ~User();
+    User(string username, string password, string fulName);
 
 private:
     Wall wall;
