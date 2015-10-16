@@ -3,13 +3,15 @@
 //
 
 #include "Wall.h"
+using namespace std;
+
 
 Wall::Wall() {
-    list = NULL;
+    list = NULL;        // set linked list to null
     username = NULL;
 }
 
-Wall::Wall(LinkedList<WallPost> l, std::string un){
+Wall::Wall(LinkedList<WallPost> l, string un){
     list = l;
     username = un;
 }
@@ -20,25 +22,24 @@ Wall::~Wall() {
 }
 
 void Wall::newWallPost(string p, string u) {
-    WallPost newPost = new WallPost(p, u);
-
+    WallPost *newPost = new WallPost(p, u);     // we need a pointer to point to the users new wallpost
     list.addElementToEnd(newPost);
 }
 
-void Wall::removeWallPost(WallPost w) {
-    list.removeElement(w);
+void Wall::removeWallPost(WallPost *w) {
+    list.removeElement(*w);
 }
 
-std::string Wall::getUsername() {
+string Wall::getUsername() {
     return username;
 }
 
-void Wall::setUsername(std::string u) {
+void Wall::setUsername(string u) {
     username = u;
 }
 
-std::string Wall::writeEntireWall() {
-    std::string result = "";
+string Wall::writeEntireWall() {
+    string result = "";
     Node<WallPost> *temp = list.head;
     while (temp != NULL) {
         result = result + temp->getData().ReturnWallPost();

@@ -2,6 +2,7 @@
 #define SOCIALNETWORKPROJECT_LINKEDLIST_H
 
 #include "Node.h"
+#include "WallPost.h"
 
 template <class X>
 class LinkedList{
@@ -12,7 +13,7 @@ public:
     LinkedList(Node<X> *n);
     ~LinkedList();
 
-    void addElementToEnd(X val);
+    void addElementToEnd(WallPost *val);
 
     void removeElement(X val);
 

@@ -9,24 +9,27 @@
 #include "LinkedList.h"
 #include "WallPost.h"
 
+
+using namespace std;
+
 class Wall {
 
 public:
 
     Wall();
-    Wall(LinkedList<WallPost> l, std::string un);
+    Wall(LinkedList<WallPost> l, string un);          // The wall is the linkedlist of wallposts
     ~Wall();
 
     void newWallPost(string p, string u);
-    void removeWallPost(WallPost w);
-    std::string getUsername();
-    void setUsername(std::string u);
-    std::string writeEntireWall();
+    void removeWallPost(WallPost* w);
+    string getUsername();
+    void setUsername(string u);
+    string writeEntireWall();
 
 
 private:
     LinkedList<WallPost> list;
-    std::string username;
+    string username;
   
 
 };
