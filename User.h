@@ -8,18 +8,21 @@
 #include <string>
 #include "Wall.h"
 
+using namespace std;
+
 class User {
 public:
-    void setFullName(std::string fn);
-    void setPassword(std::string p);
-    void setCity(std::string c);
+    void setFullName(string fn);       //setters
+    void setPassword(string p);
+    void setCity(string c);
+    void setUsername(string x);
 
 private:
     Wall wall;
-    std::string username;
-    std::string password;
-    std::string fullName;
-    std::string city;
+    string username;
+    string password;
+    string fullName;
+    string city;
 
 public:
 

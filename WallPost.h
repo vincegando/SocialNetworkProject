@@ -6,22 +6,30 @@
 #define SOCIALNETWORKPROJECT_WALLPOST_H
 
 #include <string>
+#include "time.h"
+
+
+using namespace std;
 
 class WallPost {
 
 public:
-  WallPost(std::string p, time, std::string u);
-  ~WallPost();
-  std::string getPost();
-  void setPost(std::string p);
-  std::string getUsername();
-  void setUsername(std::string u);
-  //time getters and setters
-  std::string returnWallPost();
+  WallPost(string p, string u);
+    ~WallPost();
+    string getPost();
+    void setPost(string p);
+    string getUsername();
+    void setUsername(string user);
+
 private:
-  std::string post;
-  //time data type
-  std::string username;
+
+    time_t postTime= time(NULL);
+    string post;
+    string username;
+
+
+
+
 
 };
 

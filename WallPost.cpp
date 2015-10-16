@@ -2,37 +2,31 @@
 
 #include "WallPost.h"
 #include <string>
+#include "time.h"
 
-WallPost::WallPost(std::string p, time, std::string u){
+using namespace std;
+
+WallPost::WallPost(string p, string u){
   post = p;
-  time = time;
   username = u;
 
 }
 
-WallPost::~WallPost() {
+WallPost::~WallPost() { }
 
-}
-
-std::string WallPost::getPost() {
+string WallPost::getPost() {
   return post;
 }
 
-void WallPost::setPost(std::string p) {
+void WallPost::setPost(string p) {
   post = p;
 }
 
-std::string WallPost::getUsername() {
+string WallPost::getUsername() {
   return username;
 }
 
-void WallPost::setUsername(std::string u) {
-  username = u;
+void WallPost::setUsername(string user) {
+  username = user;
 }
 
-//time setters and getters
-
-std::string WallPost::returnWallPost(); {
-  std::string result = post;
-  return result;
-}
