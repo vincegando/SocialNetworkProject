@@ -23,7 +23,9 @@ User::User(string username1, string password1, string fullName1) {
     username= username1;
     password= password1;
     fullName= fullName1;
-// I need to call wall constructor here and create a pointer * username = to this specific wall
+
+
+// I need to call wall constructor here and create a pointer Wall* username = new Wall();
 
 }
 
