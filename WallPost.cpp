@@ -30,7 +30,7 @@ void WallPost::setUsername(string user) {
 }
 
 string WallPost::ReturnWallPost() {
-  return getUsername() + getPost() + postTime;
+  return getUsername() + getPost() + ctime(&postTime);
 }
 
 
