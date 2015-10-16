@@ -38,9 +38,9 @@ void Wall::setUsername(string u) {
     username = u;
 }
 
-string Wall::writeEntireWall() {
+string Wall::writeEntireWall() {          //4E)
     string result = "";
-    Node<WallPost> *temp = list.head;
+    Node<WallPost> *temp = list.head;     //temp pointer now points to what list head points to
     while (temp != NULL) {
         result = result + temp->getData().ReturnWallPost();
         temp = temp->next;
