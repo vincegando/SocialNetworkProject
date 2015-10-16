@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/LinkedList.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/User.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/User.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UserNetwork.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UserNetwork.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Wall.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Wall.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WallPost.cpp" isTestSource="false" />

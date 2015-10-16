@@ -9,12 +9,20 @@ Wall::Wall() {
     username = NULL;
 }
 
-Wall::~Wall() {
-
+Wall::Wall(LinkedList<WallPost> l, std::string un){
+    list = l;
+    username = un;
 }
 
-void Wall::newWallPost(WallPost w) {
-    list.addElementToEnd(w);
+Wall::~Wall() {
+    delete list;
+    delete username;
+}
+
+void Wall::newWallPost(string p, string u) {
+    WallPost newPost = new WallPost(p, u);
+
+    list.addElementToEnd(newPost);
 }
 
 void Wall::removeWallPost(WallPost w) {
@@ -34,6 +42,7 @@ std::string Wall::writeEntireWall() {
     Node<WallPost> *temp = list.head;
     while (temp != NULL) {
         result = result + temp->getData().ReturnWallPost();
+        temp = temp->next;
     }
     return result;
 }

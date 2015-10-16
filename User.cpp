@@ -19,14 +19,18 @@ void User::setPassword(string p) {
     password = p;
 }
 
-User::User(string username1, string password1, string fullName1) {
-    username= username1;
-    password= password1;
-    fullName= fullName1;
+User::User(Wall w, string un, string pass, string fn, string c) {
+    wall = w;
+    username= un;
+    password= pass;
+    fullName= fn;
+    city = c;
 
 
 // I need to call wall constructor here and create a pointer Wall* username = new Wall();
 
 }
 
-User::~User() { }
+User::~User() {
+
+}

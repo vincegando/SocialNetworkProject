@@ -14,9 +14,10 @@ class Wall {
 public:
 
     Wall();
+    Wall(LinkedList<WallPost> l, std::string un);
     ~Wall();
 
-    void newWallPost(WallPost w);
+    void newWallPost(string p, string u);
     void removeWallPost(WallPost w);
     std::string getUsername();
     void setUsername(std::string u);
