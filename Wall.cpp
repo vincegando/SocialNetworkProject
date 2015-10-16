@@ -3,3 +3,15 @@
 //
 
 #include "Wall.h"
+
+Wall::Wall() {
+    list = NULL;
+}
+
+Wall::~Wall() {
+
+}
+
+void Wall::newWallPost(WallPost w) {
+    
+}

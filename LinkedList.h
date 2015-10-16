@@ -8,16 +8,17 @@ class LinkedList{
 public:
 
 
-    LinkedList() ;
-    ~LinkedList() ;
+    LinkedList();
+    LinkedList(Node<X> *n);
+    ~LinkedList();
 
     void addElementToEnd(X val);
 
-    void removeElement(Node<X> val);
+    void removeElement(X val);
 
     void print();
 
-    //X retelematNode2D(Node<X> *pointertothenode); // HELP this function returns the data you want from a node in a list
+    X returnHead();
 
 
     Node<X> * head;

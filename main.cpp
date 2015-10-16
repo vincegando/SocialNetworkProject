@@ -1,5 +1,6 @@
 #include <iostream>
 #include "LinkedList.h"
+#include "Node.h"
 
 
 using namespace std;
@@ -11,6 +12,7 @@ int main(){
     LL1.addElementToEnd(3);
     LL1.addElementToEnd(4);
     LL1.addElementToEnd(5);
+    LL1.removeElement(4);
     LL1.print();
     }
 

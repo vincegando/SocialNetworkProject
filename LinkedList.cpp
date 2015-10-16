@@ -5,8 +5,15 @@
 
 template <class X>
 LinkedList<X>::LinkedList() {
-    head=NULL;
-    tail=NULL;
+    head = NULL;
+    tail = NULL;
+}
+
+template <class X>
+LinkedList<X>::LinkedList(Node<X> *n) {
+    head = n;
+    tail = n;
+
 }
 
 template <class X>
@@ -24,12 +31,12 @@ LinkedList<X>::~LinkedList() {
 
 template <class X>
 void LinkedList<X>::addElementToEnd(X val) {
-    Node<X> *newNode= new Node<X>(val);
-    newNode->next = NULL;
+    Node<X> *temp= new Node<X>(val);
+    temp->next = NULL;
     Node <X> *curr= head;
 
     if (curr == NULL){
-        curr = newNode;
+        curr = temp;
     }
     else {
         while (curr->next)
@@ -37,7 +44,8 @@ void LinkedList<X>::addElementToEnd(X val) {
             curr = curr->next;
         }
     }
-    curr->s = newNode;
+    curr->next = temp;
+    temp->prev = curr;
 
 }
 
@@ -53,9 +61,20 @@ void LinkedList<X>::print() {
     }
 }
 
-// need to implement the iterate and returnelemlaterFUNCT    - HELP
-template <class X>
-// void LinkedList::removeElement(Node<X> val) {
-    
 
+template <class X>
+void LinkedList<X>::removeElement(X val) {
+    Node<X> *curr = head;
+    while (curr->getData() != val) {
+        curr = curr->next;
+    }
+    if (curr->getData() == val) {
+        Node<X> *temp = curr->prev;
+        temp->next = curr->next;
+    }
+}
+
+template <class X>
+X LinkedList<X>::returnHead() {
+    return head->getData();
 }
