@@ -8,7 +8,7 @@ using namespace std;
 
 Wall::Wall() {
     list = NULL;        // set linked list to null
-    username = NULL;
+    username = "";
 }
 
 Wall::Wall(LinkedList<WallPost> l, string un){
@@ -22,7 +22,7 @@ Wall::~Wall() {
 
 void Wall::newWallPost(string p, string u) {
     WallPost *newPost = new WallPost(p, u);     // we need a pointer to point to the users new wallpost
-    list.addElementToEnd(newPost);
+    list.addElementToEnd(*newPost);
 }
 
 void Wall::removeWallPost(WallPost *w) {
@@ -47,6 +47,8 @@ string Wall::writeEntireWall() {          //4E)
     return result;
 }
 
-string Wall::readEntireWall() {
+/*
+string Wall::readEntireWall(string x) {
 
 }
+*/
