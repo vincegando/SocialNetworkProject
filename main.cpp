@@ -19,7 +19,7 @@ int main () {
     {
         while ( getline (myfile,line) )
         {
-            cout << line << '\n';
+
         }
         myfile.close();
     }
