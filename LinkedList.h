@@ -14,7 +14,7 @@ public:
         head = NULL;
         tail = NULL;
     };
-    LinkedList(Node<X> *n){
+    LinkedList(Node<X> *n){     // pass in a node
         head = n;
         tail = n;
     };
@@ -61,7 +61,7 @@ public:
     void print(){
         Node <X> *curr= head;
         while(curr){
-            std::cout<< curr->getData() << "-->";
+            cout<< curr->getData() << "-->";
             curr = curr ->next;
         }
     };

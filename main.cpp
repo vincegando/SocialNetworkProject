@@ -25,7 +25,7 @@ int main () {
     {
         while ( getline (myfile,line) )
         {
-            cout << line << '\n';
+
         }
         myfile.close();
 >>>>>>> 2d7d71c28fab5b5f6c86e4bede5713d258bd390e
