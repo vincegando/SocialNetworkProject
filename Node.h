@@ -12,16 +12,23 @@
 
 template <class X>
 class Node{
-public:
-    void setData(X value);
-    X getData();
-    Node<X>(const X& value);                       // constructor
-
-    Node<X> *next;
-    Node<X> *prev;
 
 private:
     X data;
+
+public:
+    Node<X> *next;
+    Node<X> *prev;
+    void setData(X value){
+        data = value;
+    };
+    X getData(){
+        return data;
+    };
+    Node<X>(const X& val){
+        data= val;
+    };                       // constructor
+
 };
 
 

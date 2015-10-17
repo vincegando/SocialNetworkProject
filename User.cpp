@@ -41,32 +41,21 @@ User::User(string un, string pass, string fn, string c) {
     password= pass;
     fullName= fn;
     city = c;
-
-
-// I need to call wall constructor here and create a pointer Wall* username = new Wall();
-
 }
 
 User::~User() {
     delete wall;
 }
 
-void User::addWallpost(string post) {
-    WallPost* newWallpost = new WallPost(post, username);
-    wall->getList()->addElementToEnd(*newWallpost);
-}
-
 void User::deleteWallpost(WallPost *wallPost) {
     wall->removeWallPost(wallPost);          // use the "->" operator to access what the wall pointer points to
 }
-
-
-
-//need 5F functionstring User::userInfoString(){
-
-}
-//Part 5e
 string User::userInfoString() {
     return getUsername() + ", " + getPassword() + ", " + getFullName() + ", " + getCity();
 }
 
+//need 5F functionstring User::userInfoString(){
+void User::addWallPost(string post) {
+    WallPost* newWallpost = new WallPost(post, username);
+    wall->getList()->addElementToEnd(*newWallpost);
+}

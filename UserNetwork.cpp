@@ -14,7 +14,7 @@ void UserNetwork::addUser(string un, string pass, string fn, string c) {
 
     Node<User> *current = users.head;
     while (current!= NULL){
-        if (current-> getData() == un){
+        if (current-> getData().getUsername() == un){
             return;
         }
         current = current ->next;

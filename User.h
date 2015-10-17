@@ -22,19 +22,12 @@ public:
     string getCity();
 
     ~User();
-<<<<<<< Updated upstream
-    User(Wall w, string un, string pass, string fn, string c);
-    void addWallPost
-=======
-    User(string un, string pass, string fn, string c);      //constructor
-    void addWallpost(string POST);
+    User(string un, string pass, string fn, string c);
+    void addWallPost(string post);
     void deleteWallpost(WallPost * post);
     string userInfoString();
 
-
-    //need 5E function
     //need 5F function
->>>>>>> Stashed changes
 
 private:
     Wall* wall ;

@@ -1,19 +1,16 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "Node.h"
-
-
+#include "User.h"
+#include "UserNetwork.h"
+#include "WallPost.h"
+#include "Wall.h"
+#include <string>
+#include <fstream>
 using namespace std;
 
 int main(){
-    LinkedList<int> LL1;
-    LL1.addElementToEnd(1);
-    LL1.addElementToEnd(2);
-    LL1.addElementToEnd(3);
-    LL1.addElementToEnd(4);
-    LL1.addElementToEnd(5);
-    LL1.removeElement(4);
-    LL1.print();
+    return 0;
     }
 
 
