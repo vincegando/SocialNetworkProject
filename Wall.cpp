@@ -48,11 +48,11 @@ string Wall::writeEntireWall() {          //4E)
     return result;
 }
 
-/*
-string Wall::readEntireWall(string x) {
-3
+
+void Wall::readEntireWall(string x) {
+    
 }
-*/
+
 
 LinkedList<WallPost>* Wall::getList() {
     return list;

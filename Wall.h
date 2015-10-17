@@ -25,7 +25,7 @@ public:
     string getUsername();
     void setUsername(string u);
     string writeEntireWall();
-    //string readEntireWall(string x);
+    void readEntireWall(string x);
 
     LinkedList<WallPost>* getList();
 
