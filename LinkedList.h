@@ -32,25 +32,23 @@ public:
         }
     }
 
-    bool addElementToEnd(X val){
-        Node<X> *temp = new Node<X>(val);
-        Node <X> *curr = head;
+    bool addElementToEnd(Node<X> *n) {
+
+        Node <X> *curr;
+        curr = head;
         if (!head){
-            head = temp;
+            head = n;
             return true;
         }
 
 
-        while (curr)
+        while (curr -> getNext() != NULL)
         {
-            if (curr->getNext() != NULL) {
-                curr->setNext(temp);
-                temp->setPrev(curr);
-                return true;
-            }
-            curr = curr->getNext();
+                curr = curr->getNext();
         }
-        return false;
+        curr->setNext(n);
+        n->setPrev(curr);
+        return true;
 
     }
 
@@ -80,7 +78,7 @@ public:
         return false;
 
     }
-
+/*
     void print(){
         Node <X> *curr= head;
         while(curr != NULL){
@@ -88,7 +86,7 @@ public:
             curr = curr ->getNext();
         }
     }
-
+*/
     Node<X>* returnHead(){
         return head;
     }

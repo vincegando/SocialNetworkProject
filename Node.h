@@ -10,6 +10,8 @@
 #include <set>
 #include "WallPost.h"
 
+using namespace std;
+
 
 template <class X>
 class Node{
@@ -22,14 +24,13 @@ private:
 public:
 
 
-    Node<X>() {
-        data = NULL;
+    Node<X>()  {
+        data = X();
         next = NULL;
         prev = NULL;
     }
 
-    Node<X>(X val) {
-        data = val;
+    Node<X>(X val) : data(val) {
         next = NULL;
         prev = NULL;
 
@@ -38,10 +39,9 @@ public:
     ~Node<X>() {
         next = NULL;
         prev = NULL;
-        delete data;
     }
 
-    void setData(X *value){
+    void setData(X value){
         data = value;
     }
 

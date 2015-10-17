@@ -24,7 +24,7 @@ Wall::~Wall() {
 
 void Wall::newWallPost(string p, string u) {
     WallPost *newPost = new WallPost(p, u);     // we need a pointer to point to the users new wallpost
-    list->addElementToEnd(*newPost);
+    list->addElementToEnd(new Node<WallPost> (*newPost));
     delete newPost;
 }
 

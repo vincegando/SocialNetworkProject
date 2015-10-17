@@ -21,7 +21,7 @@ bool UserNetwork::addUser(string un, string pass, string fn, string c) {
     }
 
     User *newUser = new User(un,pass,fn,c);             //created a pointer to user node in usernetwork list
-    users.addElementToEnd(*newUser);                // now add the new user to the usernetwork linkedlist
+    users.addElementToEnd(new Node<User> (*newUser));                // now add the new user to the usernetwork linkedlist
     return true;
 }
 void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function may not work  - lot of logic to think

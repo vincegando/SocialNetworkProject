@@ -56,7 +56,7 @@ string User::userInfoString() {
 
 void User::addWallPost(string post) {
     WallPost* newWallpost = new WallPost(post, username);
-    wall->getList()->addElementToEnd(*newWallpost);
+    wall->getList()->addElementToEnd(new Node<WallPost>(*newWallpost));
 }
 
 void User::readUserData(string input) {             // string splitting method

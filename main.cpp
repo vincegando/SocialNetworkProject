@@ -1,12 +1,7 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "Node.h"
-#include "User.h"
-#include "UserNetwork.h"
-#include "WallPost.h"
-#include "Wall.h"
-#include <string>
-#include <fstream>
+
 
 
 using namespace std;
@@ -32,17 +27,24 @@ int main () {
 
 
 int main(){
-    //LinkedList<int> *list = new LinkedList<int>();
+    LinkedList<int> list;
 
-    //list->addElementToEnd(1);
-    //list->addElementToEnd(2);
-    //list->addElementToEnd(3);
-    //list->addElementToEnd(4);
-    //list->addElementToEnd(5);
-    //list->print();
-    //list->~LinkedList();
+    for(int i = 1; i < 1000; i++) {
+        list.addElementToEnd(new Node<int>(i));
+        //cout << i << endl;
+        //list->addElementToEnd(2);
+        //list->addElementToEnd(3);
+        //list->addElementToEnd(4);
+        //list->addElementToEnd(5);
+    }
 
-    /*
+    Node<int>* curr = list.returnHead();
+    for(int i = 1 ; i < 1000; i++){
+        cout << curr -> getData() << endl;
+        curr = curr -> getNext();
+    }
+
+    /* NUMBER 7 IS HERE
     int userInput = 0, loginInput = 0;
     string username = "", password = "", fullName = "", city = "";
     UserNetwork network;

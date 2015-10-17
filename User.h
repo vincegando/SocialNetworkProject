@@ -28,6 +28,9 @@ public:
     void deleteWallpost(WallPost * post);
     string userInfoString();
     void readUserData(string x);
+
+
+
 private:
     Wall* wall ;
     string username;
