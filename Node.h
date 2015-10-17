@@ -19,10 +19,11 @@ public:
 
     void setData(X value){
         data = value;
-    };
-    X getData(){
+    }
+
+    X getData() const {
         return data;
-    };
+    }
 
 
     Node<X> *getPrev() const {
@@ -43,7 +44,13 @@ public:
     }
 
     Node<X>(const X& val) : data(val){
-    };
+    }
+
+    Node<X>() {
+        data = NULL;
+        next = NULL;
+        prev = NULL;
+    }
 
 private:
     X data;

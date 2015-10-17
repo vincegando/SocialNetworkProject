@@ -32,17 +32,17 @@ int main () {
 
 
 int main(){
-    /*LinkedList<int> *list;
-    list->removeElement(1);
+    LinkedList<int> *list = new LinkedList<int>();
 
-    list->addElementToEnd(1);
-    list->addElementToEnd(2);
-    list->addElementToEnd(3);
-    list->addElementToEnd(4);
-    list->addElementToEnd(5);
+    //list->addElementToEnd(1);
+    //list->addElementToEnd(2);
+    //list->addElementToEnd(3);
+    //list->addElementToEnd(4);
+    //list->addElementToEnd(5);
     list->print();
-    */
+    list->~LinkedList();
 
+    /*
     int userInput = 0, loginInput = 0;
     string username = "", password = "", fullName = "", city = "";
     UserNetwork network;
@@ -62,11 +62,11 @@ int main(){
             cout << "Enter city: ";
             cin >> city;
             if (network.addUser(username, password, fullName, city) == false) {  //try to add user
-                cout >> "Username already exists";
+                cout << "Username already exists";
                 break;
             }
             else {
-                cout >> "User successfully created";
+                cout << "User successfully created";
                 break;
             }
         case 2:
@@ -82,7 +82,7 @@ int main(){
                 cin >> loginInput;
                 switch (loginInput) {
                     case 1:
-                        cout << "Wall Contents: \n"
+                        cout << "Wall Contents: \n";
                         cout << "\n";
                         network.users.print();
                         break;
@@ -104,7 +104,7 @@ int main(){
             cout << "Error: Bad input";
             break;
 
-    }
+    }*/
     return 0;
 
 
