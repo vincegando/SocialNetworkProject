@@ -29,6 +29,8 @@ public:
     string userInfoString();
     void readUserData(string x);
 
+    Wall* getWall();
+
 
 
 private:

@@ -67,3 +67,8 @@ void User::readUserData(string input) {             // string splitting method
         std::cout << token << '\n';
     }
 }
+
+Wall* User::getWall(){
+    return wall;
+
+}

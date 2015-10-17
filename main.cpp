@@ -1,6 +1,7 @@
 #include <iostream>
 #include "LinkedList.h"
 #include "Node.h"
+#include "UserNetwork.h"
 
 
 
@@ -44,7 +45,7 @@ int main(){
         curr = curr -> getNext();
     }
 
-    /* NUMBER 7 IS HERE
+     //NUMBER 7 IS HERE
     int userInput = 0, loginInput = 0;
     string username = "", password = "", fullName = "", city = "";
     UserNetwork network;
@@ -86,7 +87,7 @@ int main(){
                     case 1:
                         cout << "Wall Contents: \n";
                         cout << "\n";
-                        network.users.print();
+                        cout << network.users.returnHead()->getData().getWall()->writeEntireWall();
                         break;
                     case 2:
                         return 0;
@@ -106,7 +107,7 @@ int main(){
             cout << "Error: Bad input";
             break;
 
-    }*/
+    }
     return 0;
 
 
