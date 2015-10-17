@@ -11,12 +11,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-int main(){
-
-
-    return 0;
-=======
 /*
 int main () {
     string line;
@@ -28,7 +22,6 @@ int main () {
             cout << line << '\n';
         }
         myfile.close();
->>>>>>> 2d7d71c28fab5b5f6c86e4bede5713d258bd390e
     }
 
     else cout << "Unable to open file";
@@ -39,7 +32,7 @@ int main () {
 
 
 int main(){
-    LinkedList<int> *list;
+    /*LinkedList<int> *list;
     list->removeElement(1);
 
     list->addElementToEnd(1);
@@ -48,7 +41,39 @@ int main(){
     list->addElementToEnd(4);
     list->addElementToEnd(5);
     list->print();
+    */
 
+    int userInput = 0;
+    string username = "", password = "";
+
+    cout<<"Press 1 to Create a new User";
+    cout<<"Press 2 to Login";
+    cout<<"Press 3 to Quit\n";
+    cin >> userInput;
+    switch (userInput) {
+        case 1:
+            cout << "Enter Username: ";    //new user
+            cin >> username;
+            cout << "Enter Password: ";
+            cin >> password;
+            //check
+            break;
+        case 2:
+            cout << "Enter Username: ";    //login
+            cin >> username;
+            cout << "Enter Password: ";
+            cin >> password;
+            //check
+            //allow to see wall- another case switch
+            break;
+        case 3:
+            return 0; //quit
+            break;
+        default:
+            cout << "Error: Bad input";
+            break;
+
+    }
 
 
 
