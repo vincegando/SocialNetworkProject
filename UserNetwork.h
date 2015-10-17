@@ -18,8 +18,8 @@ public:
     void addUser(string un, string pass, string fn, string c);
     void deleteUser(string un);
 
-    // void writeToFile();
-    // void readFromFile();
+    // void writeToFile();     skipping for now
+    // void readFromFile();    skipping for now
     LinkedList<User> users;
 };
 

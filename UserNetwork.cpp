@@ -34,3 +34,5 @@ void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function
     }
 }
 
+
+// Skipping 6D & 6E functions
