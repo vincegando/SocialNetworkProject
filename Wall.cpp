@@ -27,7 +27,7 @@ void Wall::newWallPost(string p, string u) {
 }
 
 void Wall::removeWallPost(WallPost *w) {
-    list->removeElement(*w);
+    //list->removeElement(*w);
 }
 
 string Wall::getUsername() {

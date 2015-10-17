@@ -7,6 +7,7 @@
 
 #include <string>
 #include "Wall.h"
+#include "Node.h"
 
 using namespace std;
 
@@ -26,7 +27,7 @@ public:
     void addWallPost(string post);
     void deleteWallpost(WallPost * post);
     string userInfoString();
-
+    // make a copy constructor
     //need 5F function
 
 private:

@@ -1,5 +1,5 @@
-SocialNetwork: main.o LinkedList.o Node.o WallPost.o Wall.o User.o UserNetwork.o  
-	g++ main.o LinkedList.o Node.o WallPost.o Wall.o User.o UserNetwork.o -o SocialNetwork
+SocialNetwork: main.o WallPost.o Wall.o User.o UserNetwork.o  
+	g++ main.o WallPost.o Wall.o User.o UserNetwork.o -o SocialNetwork
 
 main.o: main.cpp LinkedList.h Node.h
 	g++ main.cpp -c

@@ -61,8 +61,8 @@ public:
     void print(){
         Node <X> *curr= head;
         while(curr){
-            std::cout<< curr -> getData() << "-->";
-            curr= curr ->next;
+            std::cout<< curr->getData() << "-->";
+            curr = curr ->next;
         }
     };
 

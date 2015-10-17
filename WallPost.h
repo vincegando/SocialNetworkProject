@@ -25,7 +25,7 @@ public:
 
 private:
 
-    time_t postTime= time(NULL);
+    time_t postTime = time(NULL);
     string post;
     string username;
 

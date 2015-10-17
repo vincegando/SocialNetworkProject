@@ -1,7 +1,7 @@
 //
 // Created by Vincent on 10/10/15.
 //
-using namespace std;
+//using namespace std;
 #include "User.h"
 
 void User::setFullName(string fn) {

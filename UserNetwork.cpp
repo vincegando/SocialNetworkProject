@@ -27,7 +27,7 @@ void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function
     Node<User> *current = users.head;
     while (current!= NULL){
         if (current->getData().getUsername() == un){
-            users.removeElement(current->getData());
+            //users.removeElement(current->getData());
             return;
         }
         current = current ->next;
