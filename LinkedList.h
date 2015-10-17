@@ -1,53 +1,60 @@
 #ifndef SOCIALNETWORKPROJECT_LINKEDLIST_H
 #define SOCIALNETWORKPROJECT_LINKEDLIST_H
 
+
 #include "Node.h"
-#include "WallPost.h"
+#include <iostream>
+#include <string>
 
 template <class X>
 class LinkedList{
-public:
+
+private:
     Node<X> * head;
-    Node<X> * tail;
+public:
 
     LinkedList(){
         head = NULL;
-        tail = NULL;
+
     };
     LinkedList(Node<X> *n){     // pass in a node
         head = n;
-        tail = n;
     };
     ~LinkedList(){
         Node<X> *curr = head;
-        while(head)
+        Node<X> *temp = head;
+        while(temp)
         {
-            head= head-> next;     // iterate through the list deleting one element at a time
+            curr = temp;
+            temp = curr-> getNext();     // iterate through the list deleting one element at a time
 
             delete curr;           //deletes what curr points to
-            curr= head;
         }
     };
 
-    void addElementToEnd(X val){
+    bool addElementToEnd(X val){
         Node<X> *temp= new Node<X>(val);
-        temp->next = NULL;
         Node <X> *curr= head;
 
-        if (curr == NULL){
-            curr = temp;
+        if (head == NULL){
+            head = temp;
+            return true;
         }
         else {
-            while (curr->next)
+            while (curr != NULL)
             {
-                curr = curr->next;
+                if (curr->getNext() == NULL) {
+                    curr->setNext(temp);
+                    temp->setPrev(curr);
+                    return true;
+                }
+                curr = curr->getNext();
             }
+            return false;
         }
-        curr->next = temp;
-        temp->prev = curr;
     };
 
-    void removeElement(X val){
+    bool removeElement(X val){
         Node<X> *curr = head;
         while (curr->getData() != val) {
             curr = curr->next;

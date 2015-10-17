@@ -16,8 +16,7 @@ class Node{
 
 
 public:
-    Node<X> *next;
-    Node<X> *prev;
+
     void setData(X value){
         data = value;
     };
@@ -25,11 +24,31 @@ public:
         return data;
     };
 
+
+    Node<X> *getPrev() const {
+        return prev;
+    }
+
+    Node<X> *getNext() const {
+        return next;
+    }
+
+
+    void setNext(Node *next) {
+        Node::next = next;
+    }
+
+    void setPrev(Node *prev) {
+        Node::prev = prev;
+    }
+
     Node<X>(const X& val) : data(val){
     };
 
 private:
     X data;
+    Node<X> *next;
+    Node<X> *prev;
 
 };
 
