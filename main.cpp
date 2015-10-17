@@ -43,11 +43,12 @@ int main(){
     list->print();
     */
 
-    int userInput = 0;
-    string username = "", password = "";
+    int userInput = 0, loginInput = 0;
+    string username = "", password = "", fullName = "", city = "";
+    UserNetwork network;
 
-    cout<<"Press 1 to Create a new User";
-    cout<<"Press 2 to Login";
+    cout<<"Press 1 to Create a new User\n";
+    cout<<"Press 2 to Login\n";
     cout<<"Press 3 to Quit\n";
     cin >> userInput;
     switch (userInput) {
@@ -56,25 +57,55 @@ int main(){
             cin >> username;
             cout << "Enter Password: ";
             cin >> password;
-            //check
-            break;
+            cout << "Enter Full Name: ";
+            cin >> fullName;
+            cout << "Enter city: ";
+            cin >> city;
+            if (network.addUser(username, password, fullName, city) == false) {  //try to add user
+                cout >> "Username already exists";
+                break;
+            }
+            else {
+                cout >> "User successfully created";
+                break;
+            }
         case 2:
             cout << "Enter Username: ";    //login
             cin >> username;
             cout << "Enter Password: ";
             cin >> password;
-            //check
-            //allow to see wall- another case switch
+            if (network.findUser(username, password) == true) {           //check
+                cout << "Login Successful\n";
+                cout << "\n";
+                cout << "Press 1 to show Wall\n";
+                cout << "Press 2 to exit\n";
+                cin >> loginInput;
+                switch (loginInput) {
+                    case 1:
+                        cout << "Wall Contents: \n"
+                        cout << "\n";
+                        network.users.print();
+                        break;
+                    case 2:
+                        return 0;
+                    default:
+                        cout << "Error: Bad Input";
+                        break;
+                }
+            }
+            else {
+                cout << "Username and/or password not found";
+            }
+
             break;
         case 3:
             return 0; //quit
-            break;
         default:
             cout << "Error: Bad input";
             break;
 
     }
-
+    return 0;
 
 
 }

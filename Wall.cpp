@@ -50,7 +50,7 @@ string Wall::writeEntireWall() {          //4E)
 
 
 void Wall::readEntireWall(string x) {
-    
+
 }
 
 

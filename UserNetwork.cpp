@@ -10,18 +10,19 @@ UserNetwork::UserNetwork() {
 
 UserNetwork::~UserNetwork() { }
 
-void UserNetwork::addUser(string un, string pass, string fn, string c) {
+bool UserNetwork::addUser(string un, string pass, string fn, string c) {
 
     Node<User> *current = users.head;
     while (current!= NULL){
         if (current-> getData().getUsername() == un){
-            return;
+            return false;
         }
         current = current ->next;
     }
 
-    User *newuser = new User(un,pass,fn,c);             //created a pointer to user node in usernetwork list
-    users.addElementToEnd(*newuser);                    // now add the new user to the usernetwork linkedlist
+    User *newUser = new User(un,pass,fn,c);             //created a pointer to user node in usernetwork list
+    users.addElementToEnd(*newUser);                // now add the new user to the usernetwork linkedlist
+    return true;
 }
 void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function may not work  - lot of logic to think
     Node<User> *current = users.head;
@@ -32,6 +33,17 @@ void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function
         }
         current = current ->next;
     }
+}
+
+bool UserNetwork::findUser(string un, string pass) {
+    Node<User> *current = users.head;
+    while (current!= NULL){
+        if ((current->getData().getUsername() == un) && (current->getData().getPassword() == pass)){
+            return true;
+        }
+        current = current ->next;
+    }
+    return false;
 }
 
 

@@ -15,8 +15,9 @@ public:
     UserNetwork();
     ~UserNetwork();
 
-    void addUser(string un, string pass, string fn, string c);
+    bool addUser(string un, string pass, string fn, string c);
     void deleteUser(string un);
+    bool findUser(string un, string pass);
 
     // void writeToFile();     skipping for now
     // void readFromFile();    skipping for now
