@@ -4,6 +4,8 @@
 
 #include "Wall.h"
 using namespace std;
+#include <sstream>
+#include <vector>
 
 
 Wall::Wall() {
@@ -50,7 +52,18 @@ string Wall::writeEntireWall() {          //4E)
 
 
 void Wall::readEntireWall(string x) {
+    stringstream ss(x);
+    vector<string> result;            // array of string
 
+    while( ss.good() )
+    {
+        string substr;
+        getline( ss, substr, ',' );
+        result.push_back( substr );
+    }
+
+
+    cout << result[0] ;
 }
 
 
