@@ -27,9 +27,7 @@ public:
     void addWallPost(string post);
     void deleteWallpost(WallPost * post);
     string userInfoString();
-    // make a copy constructor
-    //need 5F function
-
+    void readUserData(string x);
 private:
     Wall* wall ;
     string username;

@@ -1,9 +1,9 @@
 //
 // Created by Vincent on 10/10/15.
 //
-//using namespace std;
+using namespace std;
 #include "User.h"
-
+#include <sstream>
 void User::setFullName(string fn) {
     fullName = fn;
 }
@@ -54,8 +54,16 @@ string User::userInfoString() {
     return getUsername() + ", " + getPassword() + ", " + getFullName() + ", " + getCity();
 }
 
-//need 5F functionstring User::userInfoString(){
 void User::addWallPost(string post) {
     WallPost* newWallpost = new WallPost(post, username);
     wall->getList()->addElementToEnd(*newWallpost);
+}
+
+void User::readUserData(string input) {             // string splitting method
+    istringstream ss(input);
+    string token;
+
+    while(std::getline(ss, token, ',')) {
+        std::cout << token << '\n';
+    }
 }
