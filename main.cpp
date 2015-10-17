@@ -32,15 +32,15 @@ int main () {
 
 
 int main(){
-    LinkedList<int> *list = new LinkedList<int>();
+    //LinkedList<int> *list = new LinkedList<int>();
 
     //list->addElementToEnd(1);
     //list->addElementToEnd(2);
     //list->addElementToEnd(3);
     //list->addElementToEnd(4);
     //list->addElementToEnd(5);
-    list->print();
-    list->~LinkedList();
+    //list->print();
+    //list->~LinkedList();
 
     /*
     int userInput = 0, loginInput = 0;

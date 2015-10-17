@@ -14,37 +14,13 @@
 template <class X>
 class Node{
 
+private:
+    X data;
+    Node<X> *next;
+    Node<X> *prev;
 
 public:
 
-    void setData(X value){
-        data = value;
-    }
-
-    X getData() const {
-        return data;
-    }
-
-
-    Node<X> *getPrev() const {
-        return prev;
-    }
-
-    Node<X> *getNext() const {
-        return next;
-    }
-
-
-    void setNext(Node *next) {
-        Node::next = next;
-    }
-
-    void setPrev(Node *prev) {
-        Node::prev = prev;
-    }
-
-    Node<X>(const X& val) : data(val){
-    }
 
     Node<X>() {
         data = NULL;
@@ -52,10 +28,45 @@ public:
         prev = NULL;
     }
 
-private:
-    X data;
-    Node<X> *next;
-    Node<X> *prev;
+    Node<X>(X val) {
+        data = val;
+        next = NULL;
+        prev = NULL;
+
+    }
+
+    ~Node<X>() {
+        next = NULL;
+        prev = NULL;
+        delete data;
+    }
+
+    void setData(X *value){
+        data = value;
+    }
+
+    X getData() {
+        return data;
+    }
+
+
+    Node<X> *getPrev() {
+        return prev;
+    }
+
+    Node<X> *getNext() {
+        return next;
+    }
+
+
+    void setNext(Node *n) {
+        next = n;
+    }
+
+    void setPrev(Node *p) {
+        prev = p;
+    }
+
 
 };
 
