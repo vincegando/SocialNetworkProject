@@ -19,7 +19,7 @@ public:
 
     void print();
 
-    X returnHead();
+    X* returnHead();
 
 
     Node<X> * head;

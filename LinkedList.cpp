@@ -75,6 +75,6 @@ void LinkedList<X>::removeElement(X val) {
 }
 
 template <class X>
-X LinkedList<X>::returnHead() {
-    return head->getData();
+X* LinkedList<X>::returnHead() {
+    return head;
 }

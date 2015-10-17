@@ -11,7 +11,7 @@ Wall::Wall() {
     username = "";
 }
 
-Wall::Wall(LinkedList<WallPost> l, string un){
+Wall::Wall(LinkedList<WallPost> *l, string un){
     list = l;
     username = un;
 }
@@ -22,11 +22,12 @@ Wall::~Wall() {
 
 void Wall::newWallPost(string p, string u) {
     WallPost *newPost = new WallPost(p, u);     // we need a pointer to point to the users new wallpost
-    list.addElementToEnd(*newPost);
+    list->addElementToEnd(*newPost);
+    delete newPost;
 }
 
 void Wall::removeWallPost(WallPost *w) {
-    list.removeElement(*w);
+    list->removeElement(*w);
 }
 
 string Wall::getUsername() {
@@ -39,7 +40,7 @@ void Wall::setUsername(string u) {
 
 string Wall::writeEntireWall() {          //4E)
     string result = "";
-    Node<WallPost> *temp = list.head;     //temp pointer now points to what list head points to
+    Node<WallPost> *temp = list->head;     //temp pointer now points to what list head points to
     while (temp != NULL) {                // iterating through the list
         result = result + (temp->getData().ReturnWallPost());
         temp = temp->next;
@@ -49,6 +50,10 @@ string Wall::writeEntireWall() {          //4E)
 
 /*
 string Wall::readEntireWall(string x) {
-
+3
 }
 */
+
+LinkedList<WallPost>* Wall::getList() {
+    return list;
+}

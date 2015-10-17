@@ -15,12 +15,11 @@ public:
     UserNetwork();
     ~UserNetwork();
 
-    void addUser(Wall w, string un, string pass, string fn, string c);
+    void addUser(string un, string pass, string fn, string c);
     void deleteUser(string un);
-    writeToFile();
-    readFromFile();
 
-private:
+    // void writeToFile();
+    // void readFromFile();
     LinkedList<User> users;
 };
 
