@@ -8,13 +8,12 @@
 
 #include <iostream>
 #include <set>
+#include "WallPost.h"
 
 
 template <class X>
 class Node{
 
-private:
-    X data;
 
 public:
     Node<X> *next;
@@ -25,9 +24,12 @@ public:
     X getData(){
         return data;
     };
-    Node<X>(const X& val){
-        data= val;
-    };                       // constructor
+
+    Node<X>(const X& val) : data(val){
+    };
+
+private:
+    X data;
 
 };
 

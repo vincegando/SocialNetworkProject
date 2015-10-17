@@ -4,11 +4,11 @@ SocialNetwork: main.o LinkedList.o Node.o WallPost.o Wall.o User.o UserNetwork.o
 main.o: main.cpp LinkedList.h Node.h
 	g++ main.cpp -c
 
-LinkedList.o: LinkedList.cpp LinkedList.h Node.h
-	g++ LinkedList.cpp -c
+LinkedList.o: LinkedList.h Node.h
+	g++ LinkedList.h -c
 
-Node.o: Node.cpp Node.h
-	g++ Node.cpp -c
+Node.o: Node.h
+	g++ Node.h -c
 
 WallPost.o: WallPost.cpp WallPost.h 
 	g++ WallPost.cpp -c
