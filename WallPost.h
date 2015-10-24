@@ -15,12 +15,15 @@ using namespace std;
 class WallPost {
 
 public:
-  WallPost(string p, string u);
+    WallPost(string p, string u, time_t pt);
+    WallPost();
     ~WallPost();
     string getPost();
     void setPost(string p);
     string getUsername();
     void setUsername(string user);
+    time_t getPostTime();
+    void setPostTime(time_t pt);
     string ReturnWallPost();
 
 private:

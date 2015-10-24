@@ -16,12 +16,14 @@ public:
     ~UserNetwork();
 
     bool addUser(string un, string pass, string fn, string c);
-    void deleteUser(string un);
+    bool deleteUser(string un);
     bool findUser(string un, string pass);
+    LinkedList<User*> getUserList();
 
     // void writeToFile();     skipping for now
     // void readFromFile();    skipping for now
-    LinkedList<User> users;
+private:
+    LinkedList<User*> *users;
 };
 
 

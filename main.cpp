@@ -31,7 +31,7 @@ int main(){
     LinkedList<int> list;
 
     for(int i = 1; i < 1000; i++) {
-        list.addElementToEnd(new Node<int>(i));
+        list.addElementToEnd(i);
         //cout << i << endl;
         //list->addElementToEnd(2);
         //list->addElementToEnd(3);
@@ -87,7 +87,7 @@ int main(){
                     case 1:
                         cout << "Wall Contents: \n";
                         cout << "\n";
-                        cout << network.users.returnHead()->getData().getWall()->writeEntireWall();
+                        cout << network.getUserList().returnHead()->getData()->getWall()->writeEntireWall();
                         break;
                     case 2:
                         return 0;

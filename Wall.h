@@ -17,23 +17,23 @@ class Wall {
 public:
 
     Wall();
-    Wall(LinkedList<WallPost> *l, string un);          // The wall is the linkedlist of wallposts
+    Wall(LinkedList<WallPost*> *l, string un);          // The wall is the linkedlist of wallposts
     ~Wall();
 
-    void newWallPost(string p, string u);
-    void removeWallPost(WallPost* w);
+    bool newWallPost(string p);
+    bool removeWallPost(WallPost* w);
     string getUsername();
     void setUsername(string u);
     string writeEntireWall();
     void readEntireWall(string x);
 
-    LinkedList<WallPost>* getList();
+    LinkedList<WallPost*>* getList();
 
 
 
 private:
     string username;
-    LinkedList<WallPost>* list;
+    LinkedList<WallPost*>* list;
 
 
 };

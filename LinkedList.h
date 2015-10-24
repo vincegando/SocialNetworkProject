@@ -32,13 +32,14 @@ public:
         }
     }
 
-    bool addElementToEnd(Node<X> *n) {
-
+    bool addElementToEnd(X val) {
+        bool success = true;
         Node <X> *curr;
+        Node<X> *temp = new Node<X>(val);
         curr = head;
         if (!head){
-            head = n;
-            return true;
+            head = temp;
+            return success;
         }
 
 
@@ -46,9 +47,9 @@ public:
         {
                 curr = curr->getNext();
         }
-        curr->setNext(n);
-        n->setPrev(curr);
-        return true;
+        curr->setNext(temp);
+        temp->setPrev(curr);
+        return success;
 
     }
 

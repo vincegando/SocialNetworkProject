@@ -38,6 +38,7 @@ string User::getCity() {
 User::User(string un, string pass, string fn, string c) {
     wall = new Wall();
     username= un;
+    wall->setUsername(username);
     password= pass;
     fullName= fn;
     city = c;
@@ -45,18 +46,25 @@ User::User(string un, string pass, string fn, string c) {
 
 User::~User() {
     delete wall;
+    username = "";
+    password = "";
+    fullName = "";
+    city = "";
 }
 
-void User::deleteWallpost(WallPost *wallPost) {
-    wall->removeWallPost(wallPost);          // use the "->" operator to access what the wall pointer points to
+bool User::deleteWallpost(WallPost *wallPost) {
+    bool success;
+    success = wall->removeWallPost(wallPost);      // use the "->" operator to access what the wall pointer points to
+    return success;
 }
 string User::userInfoString() {
-    return getUsername() + ", " + getPassword() + ", " + getFullName() + ", " + getCity();
+    return getUsername() + ", " + getPassword() + ", " + getFullName() + ", " + getCity() + "\n";
 }
 
-void User::addWallPost(string post) {
-    WallPost* newWallpost = new WallPost(post, username);
-    wall->getList()->addElementToEnd(new Node<WallPost>(*newWallpost));
+bool User::addWallPost(string post) {
+    bool success;
+    success = wall->newWallPost(post);
+    return success;
 }
 
 void User::readUserData(string input) {             // string splitting method
