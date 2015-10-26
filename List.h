@@ -4,7 +4,9 @@
 
 #ifndef SOCIALNETWORKPROJECT_LIST_H
 #define SOCIALNETWORKPROJECT_LIST_H
-template <class T>
+
+#include "LinkedList.h"
+template <class X>
 class List {
     /*T data;
 
@@ -16,14 +18,24 @@ class List {
         data = value;
     }*/
 
-    void insert (int pos, const T & item) {
+    bool insert (int pos, const X & item) {
 /* Inserts the item right before position pos, growing the list by 1.
 pos must be between 0 and the current length of the list.
 (feel free return bool, if you want.) */
 
-        //check the pos is legal
+        //check the pos is legal  if it is (0 to some #)
         //push all back starting at pos : go to end, make new holder at end of list, iterate down to pos - 1,
         //set values to next in the list
+        if (pos < 0) {
+            cout << "Pos is illegal";
+            return false;
+        }
+        while (head) {
+            
+        }
+
+
+
 
     }
     void remove (int pos) {
@@ -35,7 +47,7 @@ pos must be between 0 and the current length of the list minus 1. */
 
 
     }
-    void set (int pos, const T & item) {
+    void set (int pos, const X & item) {
 /* overwrites position pos in the list with item.
 Does not change the length of the list.
 pos must be between 0 and the current length of the list minus 1. */
@@ -45,7 +57,7 @@ pos must be between 0 and the current length of the list minus 1. */
 
 
     }
-    T const & get (int pos) const {
+    X const & get (int pos) const {
 /* returns the item at position pos, not changing the list.
 pos must be between 0 and the current length of the list minus 1. */
 
