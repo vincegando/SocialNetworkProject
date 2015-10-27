@@ -20,8 +20,8 @@ public:
     bool findUser(string un, string pass);
     LinkedList<User*> getUserList();
 
-    // void writeToFile();     skipping for now
-    // void readFromFile();    skipping for now
+    //void writeToFile();     //skipping for now
+    void readFromFile(string file);    //skipping for now
 private:
     LinkedList<User*> *users;
 };

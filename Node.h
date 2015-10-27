@@ -36,6 +36,12 @@ public:
 
     }
 
+    Node<X>(X* val){
+        data = *val;
+        next = NULL;
+        prev = NULL;
+    }
+
     ~Node<X>() {
         next = NULL;
         prev = NULL;

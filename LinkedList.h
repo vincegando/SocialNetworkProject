@@ -7,20 +7,51 @@
 #include <string>
 
 template <class X>
-class LinkedList{
+class LinkedList {
 
 private:
-    Node<X> * head;
+    Node<X> *head;
+    Node<X> *tail;
+    int length;
+
+    void init();
+
 public:
 
-    LinkedList(){
-        head = NULL;
+    LinkedList();
+
+    LinkedList(X value);
+
+    ~LinkedList();
+
+    void push_back(X val);
+
+    void remove(int pos);
+
+    Node<X> *returnHead();
+};
+
+<
+
+template <typename X>
+void LinkedList<X>::init() {
+    length = 0;
+    head = new Node<X>;
+    tail = new Node<X>;
+    head->setNext(tail);
+    tail->setPrev(head);
 
     }
-    LinkedList(Node<X> *n){     // pass in a node
-        head = n;
+
+template <typename X>
+
+    LinkedList<X>::LinkedList(){     // pass in a node
+        init();
     }
-    ~LinkedList(){
+
+
+template <typename X>
+    LinkedList<X>::~LinkedList(){
         Node<X> *curr = head;
         Node<X> *temp = head;
         while(temp)
@@ -32,29 +63,22 @@ public:
         }
     }
 
-    bool addElementToEnd(X val) {
-        bool success = true;
-        Node <X> *curr;
-        Node<X> *temp = new Node<X>(val);
-        curr = head;
-        if (!head){
-            head = temp;
-            return success;
-        }
+template <typename X>
+void LinkedList<X>::push_back(X val) {
 
-
-        while (curr -> getNext() != NULL)
-        {
-                curr = curr->getNext();
-        }
-        curr->setNext(temp);
-        temp->setPrev(curr);
-        return success;
+        Node<X>* item = new Node<X>(val);
+        Node<X>* curr = tail->getPrev();
+        curr->setNext(item);
+        item->setPrev(curr);
+        item->setNext(tail);
+        tail->setPrev(item);
+        length++;
 
     }
 
-    bool removeElement(X val){
-        Node<X> *curr = head;
+template <typename X>
+    void LinkedList<X>::remove(int pos){
+        /*Node<X> *curr = head;
 
         while (curr != NULL) {
             if (curr->getData() == val) {
@@ -72,27 +96,21 @@ public:
                     }
                 }
                 delete temp;
-                return true;
+
             }
             curr = curr->getNext();
-        }
-        return false;
+        }*/
+
+
+
 
     }
-/*
-    void print(){
-        Node <X> *curr= head;
-        while(curr != NULL){
-            cout << curr->getData() << "-->";
-            curr = curr ->getNext();
-        }
-    }
-*/
-    Node<X>* returnHead(){
+
+template <typename X>
+    Node<X>* LinkedList<X>::returnHead(){
         return head;
     }
 
-};
 
 
 #endif //SOCIALNETWORKPROJECT_LINKEDLIST_H
