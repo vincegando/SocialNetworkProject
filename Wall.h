@@ -8,6 +8,7 @@
 
 #include "LinkedList.h"
 #include "WallPost.h"
+#include "List.h"
 
 
 using namespace std;
@@ -17,23 +18,24 @@ class Wall {
 public:
 
     Wall();
-    Wall(LinkedList<WallPost*> *l, string un);          // The wall is the linkedlist of wallposts
+    Wall(List<WallPost*> *l, string un);          // The wall is the linkedlist of wallposts
     ~Wall();
 
-    bool newWallPost(string p);
-    bool removeWallPost(WallPost* w);
+    void newWallPost(string p);
+
+    void removeWallPost(WallPost* w);
     string getUsername();
     void setUsername(string u);
     string writeEntireWall();
     void readEntireWall(string x);
 
-    LinkedList<WallPost*>* getList();
+    List<WallPost*>* getList();
 
 
 
 private:
     string username;
-    LinkedList<WallPost*>* list;
+    List<WallPost*>* list;
 
 
 };

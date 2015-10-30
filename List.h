@@ -20,6 +20,7 @@ public:
     void remove(int pos);
     void set(int pos, const X &item);
     X const &get(int pos) const;
+    Node<X>* returnHead();
 
 private:
     Node<X>* getPosition(int pos);
@@ -29,8 +30,7 @@ private:
     int length;
 
 };
-//_____________________________________________//
-//              IMPLEMENTATION                 //
+
 
 template <typename X>
     List<X>::List() {
@@ -50,7 +50,7 @@ template <typename X>
 template <typename X>
     bool List<X>::isEmpty() {
 
-        if(length = 0) return true;
+        if(length == 0) return true;
         return false;
     }
 
@@ -98,7 +98,7 @@ template <typename X>
     }
 
 template <typename X>
-    void List::remove(int pos) {
+    void List<X>::remove(int pos) {
     /* Removes the element at position pos, shrinking the list by 1.
     pos must be between 0 and the current length of the list minus 1. */
 
@@ -116,7 +116,7 @@ template <typename X>
     }
 
 template <typename X>
-    void List::set(int pos, const X & item) {
+    void List<X>::set(int pos, const X & item) {
     /* overwrites position pos in the list with item.
     Does not change the length of the list.
     pos must be between 0 and the current length of the list minus 1. */
@@ -134,7 +134,7 @@ template <typename X>
     }
 
 template <typename X>
-X const & List::get(int pos) const {
+X const & List<X>::get(int pos) const {
 /* returns the item at position pos, not changing the list.
 pos must be between 0 and the current length of the list minus 1. */
 
@@ -151,6 +151,11 @@ pos must be between 0 and the current length of the list minus 1. */
     }
 
 template <typename X>
+Node<X>* List<X>::returnHead(){
+    return head;
+}
+
+template <typename X>
 Node<X>* List<X>::getPosition(int pos){
     Node<X>* temp = head;
     int i = 0;
@@ -163,7 +168,7 @@ Node<X>* List<X>::getPosition(int pos){
 
 template <typename X>
 void List<X>::init() {
-    length = 0;
+    length = 1;
     head = new Node<X>;
     tail = new Node<X>;
     head->setNext(tail);

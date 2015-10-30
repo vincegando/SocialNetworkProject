@@ -1,7 +1,7 @@
 //
 // Created by Vincent on 10/10/15.
 //
-using namespace std;
+
 #include "User.h"
 #include <sstream>
 void User::setFullName(string fn) {
@@ -52,19 +52,18 @@ User::~User() {
     city = "";
 }
 
-bool User::deleteWallpost(WallPost *wallPost) {
-    bool success;
-    success = wall->removeWallPost(wallPost);      // use the "->" operator to access what the wall pointer points to
-    return success;
+void User::deleteWallpost(WallPost *wallPost) {
+
+    wall->removeWallPost(wallPost);      // use the "->" operator to access what the wall pointer points to
+
 }
 string User::userInfoString() {
     return getUsername() + ", " + getPassword() + ", " + getFullName() + ", " + getCity() + "\n";
 }
 
-bool User::addWallPost(string post) {
-    bool success;
-    success = wall->newWallPost(post);
-    return success;
+void User::addWallPost(string post) {
+    wall->newWallPost(post);
+
 }
 
 void User::readUserData(string input) {             // string splitting method

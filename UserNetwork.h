@@ -7,6 +7,7 @@
 
 #include "LinkedList.h"
 #include "User.h"
+#include "List.h"
 
 class UserNetwork {
 
@@ -18,12 +19,12 @@ public:
     bool addUser(string un, string pass, string fn, string c);
     bool deleteUser(string un);
     bool findUser(string un, string pass);
-    LinkedList<User*> getUserList();
+    List<User*> getUserList();
 
     //void writeToFile();     //skipping for now
     void readFromFile(string file);    //skipping for now
 private:
-    LinkedList<User*> *users;
+    List<User*> *users;
 };
 
 

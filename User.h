@@ -24,8 +24,8 @@ public:
 
     ~User();
     User(string un, string pass, string fn, string c);
-    bool addWallPost(string post);
-    bool deleteWallpost(WallPost * post);
+    void addWallPost(string post);
+    void deleteWallpost(WallPost * post);
     string userInfoString();
     void readUserData(string x);
 

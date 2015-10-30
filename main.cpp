@@ -2,6 +2,7 @@
 #include "LinkedList.h"
 #include "Node.h"
 #include "UserNetwork.h"
+#include "List.h"
 
 
 
@@ -28,10 +29,10 @@ int main () {
 
 
 int main(){
-    LinkedList<int> list;
+    List<int> list;
 
     for(int i = 1; i < 1000; i++) {
-        list.addElementToEnd(i);
+        list.push_back(i);
         //cout << i << endl;
         //list->addElementToEnd(2);
         //list->addElementToEnd(3);
@@ -44,6 +45,8 @@ int main(){
         cout << curr -> getData() << endl;
         curr = curr -> getNext();
     }
+
+    cout << list.size() << endl;
 
      //NUMBER 7 IS HERE
     int userInput = 0, loginInput = 0;

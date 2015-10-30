@@ -3,18 +3,17 @@
 //
 
 #include "Wall.h"
-using namespace std;
 #include <sstream>
 #include <vector>
 #include "time.h"
 
 
 Wall::Wall() {
-    list = new LinkedList<WallPost*>();        // set linked list to null
+    list = new List<WallPost*>();        // set linked list to null
     username = "";
 }
 
-Wall::Wall(LinkedList<WallPost*> *l, string un){
+Wall::Wall(List<WallPost*> *l, string un){
     list = l;
     username = un;
 }
@@ -24,16 +23,16 @@ Wall::~Wall() {
     delete list;
 }
 
-bool Wall::newWallPost(string p) {
+void Wall::newWallPost(string p) {
     time_t postTime;
     WallPost *newPost = new WallPost(p, username, time(&postTime));     // we need a pointer to point to the users new wallpost
-    bool functionWorked = list->addElementToEnd(newPost);
-    return functionWorked;
+    list->push_back(newPost);
+
 }
 
-bool Wall::removeWallPost(WallPost *w) {
-    bool success = list->removeElement(w);
-    return success;
+void Wall::removeWallPost(WallPost *w) {
+    //list->remove(w);
+
 
 }
 
@@ -46,7 +45,7 @@ void Wall::setUsername(string u) {
 }
 
 string Wall::writeEntireWall() {          //4E)
-    string result = "";
+    std::string result = "";
     Node<WallPost*> *temp = list->returnHead();     //temp pointer now points to what list head points to
     while (temp != NULL) {                // iterating through the list
         result = result + (temp->getData()->ReturnWallPost()) + "\n";
@@ -72,6 +71,6 @@ void Wall::readEntireWall(string x) {
 }
 
 
-LinkedList<WallPost*>* Wall::getList() {
+List<WallPost*>* Wall::getList() {
     return list;
 }

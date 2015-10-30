@@ -31,7 +31,7 @@ public:
     Node<X> *returnHead();
 };
 
-<
+
 
 template <typename X>
 void LinkedList<X>::init() {
