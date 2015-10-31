@@ -10,8 +10,86 @@ template <class X>
 class List {
 
 public:
-    class const_iterator { };
-    class iterator : public const_iterator { };
+    class const_iterator {
+
+    public:
+        const_iterator() : curr(nullptr) { }
+
+        const X & operator*() const {
+            return get();
+        }
+
+        const_iterator & operator++() {
+            curr = curr->getNext();
+            return *this;
+        }
+
+        const_iterator operator++(int n) {
+            const_iterator temp = *this;
+            ++(*this);
+            return temp;
+        }
+
+        bool operator==(const const_iterator & n) const {
+            return curr == n.curr;
+        }
+        bool operator!=(const const_iterator & n) const {
+            return !(*this == n);
+        }
+
+    protected:
+        Node<X>* curr;
+
+        X & get() const {
+            return curr->getData();
+        }
+
+        const_iterator(Node<X>* n) : curr(n) { };
+
+
+    };
+
+    class iterator : public const_iterator {
+    public:
+        iterator() {
+
+        }
+
+        X & operator*() {
+            return const_iterator::get();
+        }
+
+
+        const X & operator*() const {
+            return const_iterator::operator*();
+        }
+
+        iterator & operator++() {
+            this->curr = this->curr->getNext();
+            return *this;
+        }
+
+        iterator operator++ (int n) {
+            iterator temp = *this;
+            ++(*this);
+            return temp;
+        }
+
+    protected:
+        iterator(Node<X>* n) : const_iterator(n) { }
+    };
+
+
+    iterator begin() { 
+        return iterator(head);
+    }
+
+    iterator end() {
+        return iterator(tail);
+    }
+
+//*******************************************
+//          LIST METHODS
 
 public:
     List();
@@ -32,78 +110,6 @@ private:
     Node<X>* head;
     Node<X>* tail;
     int length;
-
-};
-
-class const_iterator {
-
-public:
-    const_iterator() : curr(nullptr) { }
-
-    const X & operator*() const {
-        return get();
-    }
-
-    const_iterator & operator++() {
-        curr = curr->getNext();
-        return *this;
-    }
-
-    const_iterator operator++(int n) {
-        const_iterator temp = *this;
-        ++(*this);
-        return temp;
-    }
-
-    bool operator==(const const_iterator & n) const {
-        return curr == n.curr;
-    }
-    bool operator!=(const const_iterator & n) const {
-        return !(*this == n);
-    }
-
-protected:
-    Node<X>* curr;
-
-    X & get() const {
-      return curr->getData();
-    }
-
-    const_iterator(Node<X>* n) : curr(n) { };
-
-
-};
-
-class iterator : public const_iterator {
-
-public:
-    iterator() {
-
-    }
-
-    X & operator*() {
-        return const_iterator::get();
-    }
-
-    const X & operator*() const {
-        return const_iterator::operator*();
-    }
-
-    iterator & operator++() {
-        this->curr = this->curr->getNext();
-        return *this;
-    }
-
-    iterator operator++ (int n) {
-        iterator temp = *this;
-        ++(*this);
-        return temp;
-    }
-
-protected:
-    iterator(Node<X>* n) : const_iterator(n) { }
-
-
 
 };
 
@@ -244,7 +250,7 @@ Node<X>* List<X>::getPosition(int pos){
 
 template <typename X>
 void List<X>::init() {
-    length = 1;
+    length = 0;
     head = new Node<X>;
     tail = new Node<X>;
     head->setNext(tail);
