@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <set>
-#include "WallPost.h"
 
 using namespace std;
 
