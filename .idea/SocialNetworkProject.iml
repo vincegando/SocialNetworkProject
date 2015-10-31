@@ -3,6 +3,10 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+<<<<<<< HEAD
+=======
+      <sourceFolder url="file://$MODULE_DIR$/TimeComparision.cpp" isTestSource="false" />
+>>>>>>> efd28fdee3247c49fd0c67654784a1ce448a5ad0
       <sourceFolder url="file://$MODULE_DIR$/User.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UserNetwork.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Wall.cpp" isTestSource="false" />
