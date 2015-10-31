@@ -10,6 +10,10 @@ template <class X>
 class List {
 
 public:
+    class const_iterator { };
+    class iterator : public const_iterator { };
+
+public:
     List();
     ~List();
     int size();
@@ -28,6 +32,78 @@ private:
     Node<X>* head;
     Node<X>* tail;
     int length;
+
+};
+
+class const_iterator {
+
+public:
+    const_iterator() : curr(nullptr) { }
+
+    const X & operator*() const {
+        return get();
+    }
+
+    const_iterator & operator++() {
+        curr = curr->getNext();
+        return *this;
+    }
+
+    const_iterator operator++(int n) {
+        const_iterator temp = *this;
+        ++(*this);
+        return temp;
+    }
+
+    bool operator==(const const_iterator & n) const {
+        return curr == n.curr;
+    }
+    bool operator!=(const const_iterator & n) const {
+        return !(*this == n);
+    }
+
+protected:
+    Node<X>* curr;
+
+    X & get() const {
+      return curr->getData();
+    }
+
+    const_iterator(Node<X>* n) : curr(n) { };
+
+
+};
+
+class iterator : public const_iterator {
+
+public:
+    iterator() {
+
+    }
+
+    X & operator*() {
+        return const_iterator::get();
+    }
+
+    const X & operator*() const {
+        return const_iterator::operator*();
+    }
+
+    iterator & operator++() {
+        this->curr = this->curr->getNext();
+        return *this;
+    }
+
+    iterator operator++ (int n) {
+        iterator temp = *this;
+        ++(*this);
+        return temp;
+    }
+
+protected:
+    iterator(Node<X>* n) : const_iterator(n) { }
+
+
 
 };
 
@@ -87,7 +163,7 @@ template <typename X>
         }
         Node<X>* temp = getPosition(pos);
         Node<X>* newItem = new Node<X>(item);
-        newItem->setPrev(temp->getPrev());
+        newItem->setPrev(temp->getPrev());     //need to add case for when pos = 0;
         newItem->setNext(temp);
         temp->setPrev(newItem);
         newItem->getPrev()->setNext(newItem);

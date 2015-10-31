@@ -30,8 +30,8 @@ void Wall::newWallPost(string p) {
 
 }
 
-void Wall::removeWallPost(WallPost *w) {
-    //list->remove(w);
+void Wall::removeWallPost(int pos) {
+    list->remove(pos);
 
 
 }

@@ -23,7 +23,7 @@ public:
 
     void newWallPost(string p);
 
-    void removeWallPost(WallPost* w);
+    void removeWallPost(int pos);
     string getUsername();
     void setUsername(string u);
     string writeEntireWall();

@@ -33,11 +33,7 @@ int main(){
 
     for(int i = 1; i < 1000; i++) {
         list.push_back(i);
-        //cout << i << endl;
-        //list->addElementToEnd(2);
-        //list->addElementToEnd(3);
-        //list->addElementToEnd(4);
-        //list->addElementToEnd(5);
+
     }
 
     Node<int>* curr = list.returnHead();

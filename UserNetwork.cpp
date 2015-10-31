@@ -29,7 +29,7 @@ bool UserNetwork::deleteUser(string un) {               // BEWARE: THIS function
     Node<User*> *current = users->returnHead();
     while (current!= NULL){
         if (current->getData()->getUsername() == un){
-            //users->remove(current->getData());
+            //users->remove(current->getData());  //need to fix
             return true;
         }
         current = current ->getNext();
