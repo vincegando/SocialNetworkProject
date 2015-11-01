@@ -17,7 +17,7 @@ bool UserNetwork::addUser(string un, string pass, string fn, string c) {
         if (current-> getData()->getUsername() == un){
             return false;
         }
-        current = current ->getNext();
+        current = current -> getNext();
     }
 
     User *newUser = new User(un,pass,fn,c);             //created a pointer to user node in usernetwork list

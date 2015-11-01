@@ -11,8 +11,9 @@ class List {
 
 public:
     class const_iterator {
-
     public:
+        
+        const_iterator(Node<X>* n) : curr(n) { };
         const_iterator() : curr(nullptr) { }
 
         const X & operator*() const {
@@ -38,23 +39,18 @@ public:
         }
 
     protected:
-        Node<X>* curr;
-
+        Node<X> *curr;
+        friend class List<X>;
         X & get() const {
-            return curr->getData();
+           
+            return curr -> getData();
         }
-
-        const_iterator(Node<X>* n) : curr(n) { };
-
 
     };
 
     class iterator : public const_iterator {
     public:
-        iterator() {
-
-        }
-
+        iterator() {}
         X & operator*() {
             return const_iterator::get();
         }
@@ -75,16 +71,18 @@ public:
             return temp;
         }
 
-    protected:
         iterator(Node<X>* n) : const_iterator(n) { }
+    protected:
+        friend class List<X>;
+
     };
 
 
-    iterator begin() { 
+    iterator begin() const{ 
         return iterator(head);
     }
 
-    iterator end() {
+    iterator end() const{
         return iterator(tail);
     }
 
