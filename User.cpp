@@ -52,9 +52,9 @@ User::~User() {
     city = "";
 }
 
-void User::deleteWallpost(WallPost *wallPost) {
+void User::deleteWallpost(int pos) {
 
-    wall->removeWallPost(wallPost);      // use the "->" operator to access what the wall pointer points to
+    wall->removeWallPost(pos);      // use the "->" operator to access what the wall pointer points to
 
 }
 string User::userInfoString() {

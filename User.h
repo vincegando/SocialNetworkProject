@@ -25,7 +25,7 @@ public:
     ~User();
     User(string un, string pass, string fn, string c);
     void addWallPost(string post);
-    void deleteWallpost(WallPost * post);
+    void deleteWallpost(int pos);
     string userInfoString();
     void readUserData(string x);
 

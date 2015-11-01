@@ -41,9 +41,9 @@ public:
     protected:
         Node<X> *curr;
         friend class List<X>;
-        X & get() const {
+        X get() const {
            
-            return curr -> getData();
+            return curr->getData();
         }
 
     };
@@ -161,10 +161,19 @@ template <typename X>
         //check the pos is legal  if it is (0 to some #)
         //push all back starting at pos : go to end, make new holder at end of list, iterate down to pos - 1,
         //set values to next in the list
-        if (pos <= 0 || pos > length + 1) {
+        if (pos < 0 || pos > length + 1) {
             cout << "Pos is illegal" << endl;
             return;
         }
+        if (pos == 0) {
+            Node<X>* newItem = new Node<X>(item);
+            newItem->setPrev(head);     //need to add case for when pos == 0;
+            newItem->setNext(head->getNext());
+            head->getNext()->setPrev(newItem);
+            head->setNext(newItem);
+            length++;
+        }
+
         Node<X>* temp = getPosition(pos);
         Node<X>* newItem = new Node<X>(item);
         newItem->setPrev(temp->getPrev());     //need to add case for when pos = 0;
@@ -248,7 +257,7 @@ Node<X>* List<X>::getPosition(int pos){
 
 template <typename X>
 void List<X>::init() {
-    length = 0;
+    length = 1;
     head = new Node<X>;
     tail = new Node<X>;
     head->setNext(tail);

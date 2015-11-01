@@ -9,7 +9,7 @@ int main() {
   for(int i = 0 ; i < 100; i++)
     list.push_back(i);
 
-  for(List<int>::const_iterator itr = list.begin(); itr != list.end(); ++itr) {
+  for(List<int>::const_iterator itr = list.begin(); itr != list.end(); itr++) {
       cout << *itr << endl;
 
   }
