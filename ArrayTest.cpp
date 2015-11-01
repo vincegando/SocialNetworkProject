@@ -10,6 +10,7 @@ using namespace std;
 
 int main(){
 
+
     Array<int> myArray;
 
     int n= 2000;

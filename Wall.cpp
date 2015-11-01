@@ -6,7 +6,9 @@
 #include <sstream>
 #include <vector>
 #include "time.h"
-
+#include <vector>
+#include <string>
+#include <sstream>
 
 Wall::Wall() {
     list = new List<WallPost*>();        // set linked list to null
