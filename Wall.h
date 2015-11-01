@@ -18,7 +18,7 @@ class Wall {
 public:
 
     Wall();
-    Wall(List<WallPost*> *l, string un);          // The wall is the linkedlist of wallposts
+    Wall(List<WallPost> l, string un);
     ~Wall();
 
     void newWallPost(string p);
@@ -29,13 +29,13 @@ public:
     string writeEntireWall();
     void readEntireWall(string x);
 
-    List<WallPost*>* getList();
+    List<WallPost> getList();
 
 
 
 private:
     string username;
-    List<WallPost*>* list;
+    List<WallPost> wallPosts;
 
 
 };

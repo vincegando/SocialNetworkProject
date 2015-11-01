@@ -11,29 +11,28 @@
 #include <sstream>
 
 Wall::Wall() {
-    list = new List<WallPost>();        // set linked list to null
-    username = "";
+
 }
 
-Wall::Wall(List<WallPost> *l, string un){
-    list = l;
+Wall::Wall(List<WallPost> l, string un){
+    wallPosts = l;
     username = un;
 }
 
 Wall::~Wall() {
     username = "";
-    delete list;
+    delete wallPosts;
 }
 
 void Wall::newWallPost(string p) {
     time_t postTime;
-    WallPost *newPost = new WallPost(p, username, time(&postTime));     // we need a pointer to point to the users new wallpost
-    list->push_back(newPost);
+    WallPost post(p, username, time(&postTime));     // we need a pointer to point to the users new wallpost
+    wallPosts.push_back(post);
 
 }
 
 void Wall::removeWallPost(int pos) {
-    list->remove(pos);
+    wallPosts.remove(pos);
 
 
 }
@@ -48,7 +47,7 @@ void Wall::setUsername(string u) {
 
 string Wall::writeEntireWall() {          //4E)
     std::string result = "";
-    Node<WallPost> *temp = list->returnHead();     //temp pointer now points to what list head points to
+    Node<WallPost> *temp = wallPosts.returnHead();     //temp pointer now points to what list head points to
     while (temp != NULL) {                // iterating through the list
         result = result + (temp->getData()->ReturnWallPost()) + "\n";
         temp = temp->getNext();
@@ -74,5 +73,5 @@ void Wall::readEntireWall(string x) {
 
 
 List<WallPost> Wall::getList() {
-    return list;
+    return wallPosts;
 }

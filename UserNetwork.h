@@ -21,8 +21,8 @@ public:
     bool findUser(string un, string pass);
     List<User> getUserList();
 
-    //void writeToFile();     //skipping for now
-    void readFromFile(string file);    //skipping for now
+    void WriteToFileUserList();
+    void readFromFile(string file);
 private:
     List<User> users;
 };
