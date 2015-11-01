@@ -164,7 +164,7 @@ template <typename X>
         //push all back starting at pos : go to end, make new holder at end of list, iterate down to pos - 1,
         //set values to next in the list
         if (pos <= 0 || pos > length + 1) {
-            cout << "Pos is illegal";
+            cout << "Pos is illegal" << endl;
             return;
         }
         Node<X>* temp = getPosition(pos);
