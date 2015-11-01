@@ -2,7 +2,6 @@
 // Created by Krishna Lingampalli on 10/31/15.
 //
 
-#include "ArrayTest.h"
 #include <time.h>
 #include <iostream>
 #include "Array.h"
@@ -30,7 +29,7 @@ int main(){
 
     int n2= 4000;
     clock_t  start2,end2;
-    start = clock();
+    start2 = clock();
     for (int i = 1; i<n2+1; i++ )
     {
         myArray2.insert(((myArray2.getSize() / 2) - 1), i);                    // insert into the middle of the list minus one node
@@ -51,7 +50,7 @@ int main(){
     {
         myArray3.insert(((myArray3.getSize() / 2) - 1), i);                    // insert into the middle of the list minus one node
     }
-    end2 = clock();
+    end3 = clock();
     cout<<"Time required for execution for Array with n = 6000 elements: "<< (double)(end3-start3)/CLOCKS_PER_SEC<< " seconds." << "\n\n";
 
 
