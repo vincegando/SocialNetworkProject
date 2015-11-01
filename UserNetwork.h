@@ -19,12 +19,12 @@ public:
     bool addUser(string un, string pass, string fn, string c);
     bool deleteUser(string un);
     bool findUser(string un, string pass);
-    List<User*> getUserList();
+    List<User> getUserList();
 
     //void writeToFile();     //skipping for now
     void readFromFile(string file);    //skipping for now
 private:
-    List<User*> *users;
+    List<User> users;
 };
 
 
