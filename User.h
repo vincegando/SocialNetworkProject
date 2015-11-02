@@ -21,6 +21,8 @@ public:
     string getPassword();
     string getFullName();
     string getCity();
+    void acceptRequest(string request);
+    void sendRequest();
 
     ~User();
     User(string un, string pass, string fn, string c);
@@ -39,6 +41,12 @@ private:
     string password;
     string fullName;
     string city;
+    List<std::string> friends;
+    List<std::string> requests;
+    void requests();
+    void friends();
+    void refreshLists(std::string username);
+    
 };
 
 

@@ -1,9 +1,8 @@
 
 
 #include "WallPost.h"
-#include <string>
-#include "time.h"
-#include <iostream>
+
+
 
 using namespace std;
 WallPost::WallPost(string p, string u, time_t pt){
@@ -49,7 +48,12 @@ void WallPost::setPostTime(time_t pt) {
 }
 
 string WallPost::ReturnWallPost() {
-  return getUsername() + ", "+ getPost() + ", "+ ctime(&postTime)+ ", ";
+  struct tm *timedata;
+  timedata = localtime(&postTime);
+  char timeString[50];
+  strftime(timeString, 50, "%I:%M%p", timedata);
+
+  return getUsername() + ", "+ getPost() + ", "+ timeString + ", \n";
 }
 
 

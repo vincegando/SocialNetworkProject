@@ -148,7 +148,11 @@ template <typename X>
 template <typename X>
     void List<X>::push_back(const X & item){
 
-        insert(length,item);
+        Node<X>* newItem = new Node<X>(item);
+        newItem->setPrev(tail->getPrev());
+        tail->getPrev()->setNext(newItem);
+        tail->setPrev(newItem);
+        newItem->setNext(tail);
     }
 
 
@@ -164,14 +168,6 @@ template <typename X>
         if (pos < 0 || pos > length + 1) {
             cout << "Pos is illegal" << endl;
             return;
-        }
-        if (pos == 0) {
-            Node<X>* newItem = new Node<X>(item);
-            newItem->setPrev(head);     //need to add case for when pos == 0;
-            newItem->setNext(head->getNext());
-            head->getNext()->setPrev(newItem);
-            head->setNext(newItem);
-            length++;
         }
 
         Node<X>* temp = getPosition(pos);
@@ -257,7 +253,7 @@ Node<X>* List<X>::getPosition(int pos){
 
 template <typename X>
 void List<X>::init() {
-    length = 1;
+    length = 0;
     head = new Node<X>;
     tail = new Node<X>;
     head->setNext(tail);

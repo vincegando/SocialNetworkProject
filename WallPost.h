@@ -6,7 +6,8 @@
 #define SOCIALNETWORKPROJECT_WALLPOST_H
 
 #include <string>
-#include "time.h"
+#include <ctime>
+#include <iostream>
 
 
 
@@ -28,7 +29,7 @@ public:
 
 private:
 
-    time_t postTime = time(NULL);
+    time_t postTime;
     string post;
     string username;
 
