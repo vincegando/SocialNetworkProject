@@ -75,7 +75,7 @@ int main(){
                     case 1:
                         cout << "Wall Contents: \n";
                         cout << "\n";
-                        cout << users.getUserList().returnHead()->getData()->getWall()->writeEntireWall();
+                        cout << users.returnUser(username).getWall().writeEntireWall();
                         break;
                     case 2:
                         cout << "What's on Your Mind?: "
@@ -86,7 +86,7 @@ int main(){
                     case 3:
                         cout << "Enter the post number you want to delete: "
                         cin >> postNumber;
-
+                        //need to fix delete functions
                         break;
                     case 4:
                         cout << "Press 1 to edit your full name\n";
