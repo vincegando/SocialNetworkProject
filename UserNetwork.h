@@ -20,6 +20,7 @@ public:
     bool deleteUser(string un);
     bool findUser(string un, string pass);
     List<User> getUserList();
+    User returnUser(string username);
 
     void WriteToFileUserList();
     void readFromFile(string file);

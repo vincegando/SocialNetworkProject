@@ -55,6 +55,17 @@ bool UserNetwork::findUser(string un, string pass) {
     return false;
 }
 
+User UserNetwork::returnUser(string username) {
+    Node<User> *current = users.returnHead();
+    while (current!= NULL){
+        if (current->getData().getUsername() == username) {
+            return current->getData();
+        }
+        current = current->getNext();
+    return current->getData();    
+    }
+}
+
 List<User> UserNetwork::getUserList() {
     return users;
 }

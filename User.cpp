@@ -75,8 +75,8 @@ void User::readUserData(string input) {             // string splitting method
     }
 }
 
-void requests() {
-    
+void makeRequest() {
+    UserNetwork *users = 
 }
 
 Wall* User::getWall(){
