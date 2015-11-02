@@ -7,7 +7,6 @@
 
 #include <string>
 #include "Wall.h"
-#include "UserNetwork.h"
 
 using namespace std;
 
@@ -21,18 +20,17 @@ public:
     string getPassword();
     string getFullName();
     string getCity();
-    void acceptRequest(string request);
-    void sendRequest();
 
     ~User();
+    User();
     User(string un, string pass, string fn, string c);
+    User(string userString);
     void addWallPost(string post);
     void deleteWallpost(int pos);
     string userInfoString();
     void readUserData(string x);
-    void makeRequest();
-    void makeFriends();
-    void refreshLists(std::string username);
+    List<string> getFriends();
+    List<string> getRequests();
 
     Wall* getWall();
 
@@ -44,8 +42,8 @@ private:
     string password;
     string fullName;
     string city;
-    List<std::string> friends;
-    List<std::string> requests;
+    List<string> friends;
+    List<string> requests;
     
     
 };

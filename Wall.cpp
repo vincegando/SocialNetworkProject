@@ -20,8 +20,7 @@ Wall::Wall(List<WallPost> l, string un){
 }
 
 Wall::~Wall() {
-    username = "";
-    delete wallPosts;
+
 }
 
 void Wall::newWallPost(string p) {
@@ -67,8 +66,6 @@ void Wall::readEntireWall(string x) {
         result.push_back( substr );
     }
 
-
-    cout << result[0] ;
 }
 
 

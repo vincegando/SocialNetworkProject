@@ -6,10 +6,8 @@
 #define SOCIALNETWORKPROJECT_WALL_H
 
 
-#include "LinkedList.h"
-#include "WallPost.h"
 #include "List.h"
-
+#include "WallPost.h"
 
 using namespace std;
 

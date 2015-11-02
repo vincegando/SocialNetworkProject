@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Node.h"
 #include "UserNetwork.h"
 #include "List.h"
@@ -26,10 +27,11 @@ int main(){
     // cout << list.size() << endl;
 
      
-    int userInput = 0, loginInput = 0, postNumber = 0;
+    int userInput = 0, loginInput = 0, postNumber = 0, infoInput = 0;
     string postContent = "", searchInput = "";
     string username = "", password = "", fullName = "", city = "";
-    UserNetwork *users = UserNetwork::readFromFile("./userList.txt");
+    UserNetwork users;
+    users.readFromFile("./userList.txt");
 
     cout<<"Press 1 to Create a new User\n";
     cout<<"Press 2 to Login\n";
@@ -42,23 +44,27 @@ int main(){
             cout << "Enter Password: ";
             cin >> password;
             cout << "Enter Full Name: ";
-            cin >> fullName;
+            cin.ignore();
+            cin.clear();
+            cin.sync();
+            getline(cin, fullName);
             cout << "Enter city: ";
             cin >> city;
-            if (users.addUser(username, password, fullName, city) == false) {  //try to add user
-                cout << "Username already exists";
-                break;
-            }
-            else if (users.addUser(username, password, fullName, city == true)){
-                cout << "User successfully created";
-                break;
-            }
+            users.addUser(username, password, fullName, city);
+            users.WriteToFileUserList();                                        //try to add user
+            break;
         case 2:
             cout << "Enter Username: ";    //login
+            cin.ignore();
+            cin.clear();
+            cin.sync();
             cin >> username;
             cout << "Enter Password: ";
+            cin.ignore();
+            cin.clear();
+            cin.sync();
             cin >> password;
-            if (users.findUser(username, password) == true) {           //check
+            if (users.findUser(username, password) == 0) {           //check
                 cout << "Login Successful\n";
                 cout << "\n";
                 cout << "Press 1 to show Wall\n";
@@ -75,16 +81,16 @@ int main(){
                     case 1:
                         cout << "Wall Contents: \n";
                         cout << "\n";
-                        cout << users.returnUser(username).getWall().writeEntireWall();
+                        cout << users.returnUser(username)->getData().getWall()->writeEntireWall();
                         break;
                     case 2:
-                        cout << "What's on Your Mind?: "
+                        cout << "What's on Your Mind?: ";
                         cin >> postContent;
-                        users.returnUser(username).addWallPost(postContent);
-                        cout >> "Post Created\n";
+                        users.returnUser(username)->getData().addWallPost(postContent);
+                        cout << "Post Created\n";
                         break;
                     case 3:
-                        cout << "Enter the post number you want to delete: "
+                        cout << "Enter the post number you want to delete: ";
                         cin >> postNumber;
                         //need to fix delete functions
                         break;
@@ -95,21 +101,21 @@ int main(){
                         cin >> infoInput;
                         switch (infoInput) {
                             case 1:
-                                cout << "Enter your new full name"
+                                cout << "Enter your new full name: ";
                                 cin >> fullName;
-                                users.returnUser(username).setFullName(fullName);
+                                users.returnUser(username)->getData().setFullName(fullName);
                                 cout << "Full name updated";
                                 break;
                             case 2:
-                                cout << "Enter your new password"
+                                cout << "Enter your new password: ";
                                 cin >> password;
-                                users.returnUser(username).setPassword(password);
+                                users.returnUser(username)->getData().setPassword(password);
                                 cout << "Password updated";
                                 break;
                             case 3:
-                                cout << "Enter your new city"
+                                cout << "Enter your new city: ";
                                 cin >> city;
-                                users.returnUser(username).setCity(city);
+                                users.returnUser(username)->getData().setCity(city);
                                 cout << "City updated";
                                 break;
                             default:
@@ -122,17 +128,18 @@ int main(){
                         users.deleteUser(username);
                         break;
                     case 6:
-                        cout << "Enter the user you want to search for: "
+                        cout << "Enter the user you want to search for: ";
                         cin >> searchInput;
-                        //search function
+                        users.search(searchInput);
+                        users.sendRequest(users.returnUser(username),searchInput);
                         break;
                     case 7:
                         cout << "Your friend requests: \n";
-                        //show requests
+                        users.returnUser(username)->getData().getRequests();                            //show requests
                         break;
                     case 8:
                         cout << "Your friends: \n";
-                        //show friend list
+                        users.returnUser(username)->getData().getFriends();                                 //show friend list
                         break;
                     case 9:
                         cout << "Logging out";
@@ -144,7 +151,7 @@ int main(){
                 }
             }
             else {
-                cout << "Username and/or password not found";
+                cout << "Username and/or password not found\n";
             }
 
             break;

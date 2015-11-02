@@ -41,9 +41,8 @@ public:
     protected:
         Node<X> *curr;
         friend class List<X>;
-        X get() const {
-           
-            return curr->getData();
+        X & get() const {
+            return curr -> getData();
         }
 
     };
@@ -51,10 +50,6 @@ public:
     class iterator : public const_iterator {
     public:
         iterator() {}
-        X & operator*() {
-            return const_iterator::get();
-        }
-
 
         const X & operator*() const {
             return const_iterator::operator*();

@@ -3,9 +3,8 @@
 //
 
 #include "UserNetwork.h"
-#include "LinkedList.h"
-#include "User.h"
 #include "List.h"
+#include "User.h"
 #include <string>
 #include <string.h>
 #include <fstream>
@@ -17,57 +16,62 @@ UserNetwork::UserNetwork() {
 
 UserNetwork::~UserNetwork() { }
 
-bool UserNetwork::addUser(string un, string pass, string fn, string c) {
+void UserNetwork::addUser(string un, string pass, string fn, string c) {
 
     Node<User> *current = users.returnHead();
     while (current!= NULL){
         if (current->getData().getUsername() == un){
-            return false;
+            cout << "Username exists"<< endl;
+            return;
         }
         current = current ->getNext();
     }
 
     User newUser(un,pass,fn,c);             //created a pointer to user node in usernetwork list
     users.push_back(newUser);
-    return true;                // now add the new user to the usernetwork linkedlist
+    cout << "user created"<< endl;
+                    // now add the new user to the usernetwork linkedlist
 
 }
-bool UserNetwork::deleteUser(string un) {               // BEWARE: THIS function may not work  - lot of logic to think
+void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function may not work  - lot of logic to think
     Node<User> *current = users.returnHead();
-    while (current!= NULL){
+    while (current->getNext() != NULL){
         if (current->getData().getUsername() == un){
             //users->remove(current->getData());  //need to fix
-            return true;
+            cout << "user deleted" << endl;
         }
         current = current ->getNext();
     }
-    return false;
+    cout << "user not deleted" << endl;
 }
 
-bool UserNetwork::findUser(string un, string pass) {
+int UserNetwork::findUser(string un, string pass) {
     Node<User> *current = users.returnHead();
-    while (current!= NULL){
-        if ((current->getData().getUsername() == un) && (current->getData().getUsername() == pass)){
-            return true;
+    while (current->getNext()!= NULL){
+        if ((current->getData().getUsername() == un ) && (current->getData().getUsername() == pass)){
+            cout << "user found" << endl;
+            return 0;
         }
         current = current ->getNext();
     }
-    return false;
+    cout << "user not found" << endl;
+    return 1;
 }
 
-User UserNetwork::returnUser(string username) {
+
+Node<User> *UserNetwork::returnUser(string username) {
     Node<User> *current = users.returnHead();
-    while (current!= NULL){
+    while (current->getNext() != NULL) {
         if (current->getData().getUsername() == username) {
-            return current->getData();
+            return current;
         }
         current = current->getNext();
-    return current->getData();    
     }
+    return current;
 }
 
-List<User> UserNetwork::getUserList() {
-    return users;
+List<User> *UserNetwork::getUserList() {
+    return &users;
 }
 
 
@@ -75,13 +79,22 @@ List<User> UserNetwork::getUserList() {
 
 void UserNetwork::WriteToFileUserList(){
     fstream file;                     // use for reading and writing
-    file.open("./userList.txt");            //empty file
+    file.open("./userList.txt", fstream::out);            //empty file
+
+    if(file.is_open()) {
+        cout << "file is open\n";
+    }
+    else {
+        cout << "file is not open\n";
+    }
     std::string temp;
 
-    List::iterator itr;                     //do something else
-    while(++itr != users.end()){
-        temp = (*itr).userInfoString();
-        file << temp << endl;                // use "<<" to write to file
+    Node<User> *curr = users.returnHead();
+    curr = curr->getNext();                                       //do something else
+    while(curr->getNext()){
+        temp = curr->getData().userInfoString();
+        file << temp << endl;
+        curr = curr->getNext();                          // use "<<" to write to file
     }
     
     file.close();
@@ -90,21 +103,57 @@ void UserNetwork::WriteToFileUserList(){
 
 
 void UserNetwork::readFromFile(string file){
- ifstream iFile(file);
- string line;
- 
-    /* While there is still a line. */
-    while(getline(iFile, line)) {
-        /* Printing goes here. */
-        cout << line << endl;
-        addUser(line);
-    }
- 
-    iFile.close();
 
-    
+    ifstream filename;
+    filename.open(file);
+    string temp;
+
+    while(getline(filename,temp)){
+        User newUser(temp);
+        users.push_back(newUser);
+    }
+
+    filename.close();
     return;
 }
 
+void UserNetwork::search(string userSearch) {
+    Node<User> *temp = users.returnHead();
+    int input = 0;
+    while(temp->getNext() !=NULL){
+        if(temp->getData().getUsername() == userSearch)
+        {
+            cout<< "User exists"<< endl;
+            return;
+        }
+    }
+    cout<< "User does not exist"<< endl;
+
+}
 
 
+void UserNetwork::acceptRequest(Node<User> *curr, string username){
+    // one user in a list gets data from another user in the list
+    string currUsername = curr->getData().getUsername();
+    Node<User> *temp = users.returnHead();
+    while (temp->getNext() != NULL)  {
+        if (temp->getData().getUsername() == username) {
+            temp->getData().getFriends().push_back(currUsername);
+        }
+        temp = temp->getNext();
+    }
+}
+
+void UserNetwork::sendRequest(Node<User> *curr, string username){
+    //send data from one user to another
+    string currUsername = curr->getData().getUsername();
+    Node<User> *temp = users.returnHead();
+    while (temp->getNext() != NULL) {
+        if (temp->getData().getUsername() == username) {
+            temp->getData().getRequests().push_back(currUsername);
+        }
+        temp = temp->getNext();
+    }
+
+
+}
