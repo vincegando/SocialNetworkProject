@@ -75,6 +75,10 @@ void User::readUserData(string input) {             // string splitting method
     }
 }
 
+void requests() {
+    
+}
+
 Wall* User::getWall(){
     return wall;
 

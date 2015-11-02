@@ -43,8 +43,8 @@ private:
     string city;
     List<std::string> friends;
     List<std::string> requests;
-    void requests();
-    void friends();
+    void makeRequest();
+    void makeFriends();
     void refreshLists(std::string username);
     
 };
