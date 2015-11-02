@@ -49,7 +49,7 @@ string Wall::writeEntireWall() {          //4E)
     std::string result = "";
     Node<WallPost> *temp = wallPosts.returnHead();     //temp pointer now points to what list head points to
     while (temp != NULL) {                // iterating through the list
-        result = result + (temp->getData()->ReturnWallPost()) + "\n";
+        result = result + (temp->getData().ReturnWallPost()) + "\n";
         temp = temp->getNext();
     }
     return result;

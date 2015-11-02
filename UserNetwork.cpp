@@ -64,12 +64,12 @@ List<User> UserNetwork::getUserList() {
 
 void UserNetwork::WriteToFileUserList(){
     fstream file;                     // use for reading and writing
-    file.open("file.txt");            //empty file
+    file.open("./userList.txt");            //empty file
     std::string temp;
 
-    iterator itr;                     //do something else
+    List::iterator itr;                     //do something else
     while(++itr != users.end()){
-        temp = (*itr).userInfoString;
+        temp = (*itr).userInfoString();
         file << temp << endl;                // use "<<" to write to file
     }
     
