@@ -4,11 +4,9 @@
 
 #include "Wall.h"
 #include <sstream>
-#include <vector>
 #include "time.h"
-#include <vector>
 #include <string>
-#include <sstream>
+
 
 Wall::Wall() {
 
@@ -56,15 +54,23 @@ string Wall::writeEntireWall() {          //4E)
 
 
 void Wall::readEntireWall(string x) {
-    stringstream ss(x);
-    vector<string> result;            // array of string
+    
+    string temp = x.substr(0,x.find("|$|"));
+    //x= x.substr(x.find("|$|") + 2 , x.length());
+    x.erase(0, x.find("|$|") + 2);
+    username= temp;
 
-    while( ss.good() )
-    {
-        string substr;
-        getline( ss, substr, ',' );
-        result.push_back( substr );
-    }
+    temp = x.substr(0,x.find("|$|"));
+    //x= x.substr(x.find("|$|") + 2 , x.length());
+    x.erase(0, x.find("|$|") + 2);
+    string post= temp;
+
+    temp = x.substr(0,x.find("|$|"));
+    //x= userString.substr(x.find("|$|") + 2 , x.length());
+    x.erase(0, x.find("|$|") + 2);
+    string postTime = temp;
+
+    newWallPost(post);
 
 }
 

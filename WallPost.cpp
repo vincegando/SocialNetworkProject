@@ -53,7 +53,7 @@ string WallPost::ReturnWallPost() {
   char timeString[50];
   strftime(timeString, 50, "%I:%M%p", timedata);
 
-  return getUsername() + ", "+ getPost() + ", "+ timeString + ", \n";
+  return getUsername() + "|$|"+ getPost() + "|$|"+ timeString + "\n";
 }
 
 

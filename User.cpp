@@ -4,6 +4,8 @@
 
 #include "User.h"
 #include <sstream>
+
+
 void User::setFullName(string fn) {
     fullName = fn;
 }
@@ -90,14 +92,6 @@ void User::addWallPost(string post) {
 
 }
 
-void User::readUserData(string input) {             // string splitting method
-    istringstream ss(input);
-    string token;
-
-    while(std::getline(ss, token, ',')) {
-        std::cout << token << '\n';
-    }
-}
 
 List<string> User::getFriends() {
     return friends;

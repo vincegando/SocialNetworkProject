@@ -28,7 +28,6 @@ public:
     void addWallPost(string post);
     void deleteWallpost(int pos);
     string userInfoString();
-    void readUserData(string x);
     List<string> getFriends();
     List<string> getRequests();
 
