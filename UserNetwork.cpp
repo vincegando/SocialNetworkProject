@@ -6,7 +6,6 @@
 #include "List.h"
 #include "User.h"
 #include <string>
-#include <string.h>
 #include <fstream>
 
 
