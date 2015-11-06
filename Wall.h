@@ -8,6 +8,7 @@
 
 #include "List.h"
 #include "WallPost.h"
+#include <list>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Wall {
 public:
 
     Wall();
-    Wall(List<WallPost> l, string un);
+    Wall(list<WallPost> l, string un);
     ~Wall();
 
     void newWallPost(string p);
@@ -27,13 +28,13 @@ public:
     string writeEntireWall();
     void readEntireWall(string x);
 
-    List<WallPost> getList();
+    list<WallPost> & getList();
 
 
 
 private:
     string username;
-    List<WallPost> wallPosts;
+    list<WallPost> wallPosts;
 
 
 };

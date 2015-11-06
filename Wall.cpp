@@ -12,7 +12,7 @@ Wall::Wall() {
 
 }
 
-Wall::Wall(List<WallPost> l, string un){
+Wall::Wall(list<WallPost> l, string un){
     wallPosts = l;
     username = un;
 }
@@ -75,6 +75,6 @@ void Wall::readEntireWall(string x) {
 }
 
 
-List<WallPost> Wall::getList() {
+list<WallPost> & Wall::getList() {
     return wallPosts;
 }

@@ -7,6 +7,7 @@
 
 #include <string>
 #include "Wall.h"
+#include <list>
 
 using namespace std;
 
@@ -28,8 +29,8 @@ public:
     void addWallPost(string post);
     void deleteWallpost(int pos);
     string userInfoString();
-    List<string> & getFriends();
-    List<string> & getRequests();
+    list<string> & getFriends();
+    list<string> & getRequests();
 
     Wall* getWall();
 
@@ -41,8 +42,8 @@ private:
     string password;
     string fullName;
     string city;
-    List<string> friends;
-    List<string> requests;
+    list<string> friends;
+    list<string> requests;
     
     
 };

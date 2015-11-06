@@ -93,11 +93,11 @@ void User::addWallPost(string post) {
 }
 
 
-List<string> User::getFriends() {
+list<string>  & User::getFriends() {
     return friends;
 }
 
-List<string> User::getRequests() {
+list<string> & User::getRequests() {
     return requests;
 }
 
