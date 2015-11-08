@@ -27,7 +27,7 @@ public:
     User(string un, string pass, string fn, string c);
     User(string userString);
     void addWallPost(string post);
-    void deleteWallpost(int pos);
+    void deleteWallPost(int pos);
     string userInfoString();
     list<string> & getFriends();
     list<string> & getRequests();

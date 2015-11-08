@@ -6,7 +6,7 @@
 #define SOCIALNETWORKPROJECT_WALL_H
 
 
-#include "List.h"
+
 #include "WallPost.h"
 #include <list>
 
@@ -22,7 +22,7 @@ public:
 
     void newWallPost(string p);
 
-    void removeWallPost(int pos);
+    void removeWallPost(list<WallPost>::iterator itr);
     string getUsername();
     void setUsername(string u);
     string writeEntireWall();

@@ -78,9 +78,15 @@ User::User(string userString){
 
 }
 
-void User::deleteWallpost(int pos) {
+void User::deleteWallPost(int pos) {
 
-    wall->removeWallPost(pos);      // use the "->" operator to access what the wall pointer points to
+    list<WallPost>::iterator itr = wall->getList().begin();
+    int i = 0;
+    while (i != pos) {
+        itr++;
+        i++;
+    }
+    wall->removeWallPost(itr);      // use the "->" operator to access what the wall pointer points to
 
 }
 string User::userInfoString(){

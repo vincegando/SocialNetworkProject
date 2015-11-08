@@ -9,7 +9,8 @@
 
 
 Wall::Wall() {
-
+    username = "";
+    wallPosts = list<WallPost>();
 }
 
 Wall::Wall(list<WallPost> l, string un){
@@ -18,7 +19,7 @@ Wall::Wall(list<WallPost> l, string un){
 }
 
 Wall::~Wall() {
-
+    username = "";
 }
 
 void Wall::newWallPost(string p) {
@@ -28,8 +29,8 @@ void Wall::newWallPost(string p) {
 
 }
 
-void Wall::removeWallPost(int pos) {
-    wallPosts.remove(pos);
+void Wall::removeWallPost(list<WallPost>::iterator itr) {
+    wallPosts.erase(itr);
 
 
 }
@@ -44,10 +45,11 @@ void Wall::setUsername(string u) {
 
 string Wall::writeEntireWall() {          //4E)
     std::string result = "";
-    Node<WallPost> *temp = wallPosts.returnHead();     //temp pointer now points to what list head points to
-    while (temp != NULL) {                // iterating through the list
-        result = result + (temp->getData().ReturnWallPost()) + "\n";
-        temp = temp->getNext();
+    list<WallPost>::iterator itr = wallPosts.begin();
+    //Node<WallPost> *temp = wallPosts.returnHead();     //temp pointer now points to what list head points to
+    while (itr++ != wallPosts.end()) {                // iterating through the list
+        result = result + ((*itr).ReturnWallPost()) + "\n";
+        itr++;
     }
     return result;
 }

@@ -18,9 +18,9 @@ WallPost::WallPost() {
 }
 
 WallPost::~WallPost() {
-  post = "";
-  username = "";
-  postTime = NULL;
+  // post = "";
+  // username = "";
+  // postTime = NULL;
 }
 
 string WallPost::getPost() {
