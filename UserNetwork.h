@@ -7,7 +7,8 @@
 
 
 #include "User.h"
-#include "List.h"
+#include <list>
+
 
 class UserNetwork {
 
@@ -19,7 +20,6 @@ public:
     void addUser(string un, string pass, string fn, string c);
     void deleteUser(string un);
     int findUser(string un, string pass);
-    List<User> *getUserList();
     Node<User>* returnUser(string username);   // ? return user at this position of this list
 
     void WriteToFileUserList();
@@ -31,7 +31,7 @@ public:
     void sendRequest(Node<User>* curr, string username);
 
 private:
-    List<User> users;
+    std::list<User> users;
 };
 
 
