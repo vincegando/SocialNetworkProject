@@ -1,7 +1,7 @@
 
 #include "UserNetwork.h"
 #include "User.h"
-#include "List.h"
+#include <list>
 #include <string>
 #include <fstream>
 
@@ -19,8 +19,8 @@ int main(int argc, const char * argv[]){
 
     test.readFromFile("./userList.txt");
 
-    cout << test.returnUser("krishna")->getData().userInfoString();
-    cout << test.returnUser("vince")->getData().userInfoString();
+    cout << test.returnUser("krishna").userInfoString();
+    cout << test.returnUser("vince").userInfoString();
     cout << "test"<< endl;
     return 0;
 

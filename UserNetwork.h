@@ -8,6 +8,7 @@
 
 #include "User.h"
 #include <list>
+#include <string>
 
 
 class UserNetwork {
@@ -20,18 +21,18 @@ public:
     void addUser(string un, string pass, string fn, string c);
     void deleteUser(string un);
     int findUser(string un, string pass);
-    Node<User>* returnUser(string username);   // ? return user at this position of this list
+    User & returnUser(string username);   // ? return user at this position of this list
 
     void WriteToFileUserList();
     void readFromFile(string file);
     //void refreshLists(std::string username);
 
-    void search(string userSearch);
-    void acceptRequest(Node<User>*curr, string username);
-    void sendRequest(Node<User>* curr, string username);
+    string search(string userSearch);
+    void acceptRequest(User accepter, string username);
+    void sendRequest(User sender, string username);
 
 private:
-    std::list<User> users;
+    list<User> users;
 };
 
 
