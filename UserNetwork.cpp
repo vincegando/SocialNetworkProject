@@ -164,7 +164,7 @@ void UserNetwork::readFromFile(string file){
 string UserNetwork::search(string userSearch) {
 
     list<User>::iterator itr = users.begin();
-    while (itr != users.end()) {
+    while (itr != NULL) {
         if ((*itr).getUsername() == userSearch) {
             return (*itr).getUsername();
         }
