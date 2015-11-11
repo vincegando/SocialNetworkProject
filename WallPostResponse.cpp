@@ -5,3 +5,14 @@
 #include "WallPostResponse.h"
 
 
+WallPostResponse() {
+	
+}
+
+WallPostResponse(string comment) {
+	
+}
+
+~WallPostResponse() {
+	
+}
