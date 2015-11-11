@@ -109,6 +109,7 @@ User & UserNetwork::returnUser(string username) {
     }
     return current;   */
 
+    return (*itr);
 }
 
 
@@ -164,7 +165,7 @@ void UserNetwork::readFromFile(string file){
 string UserNetwork::search(string userSearch) {
 
     list<User>::iterator itr = users.begin();
-    while (itr != NULL) {
+    while (itr != users.end()) {
         if ((*itr).getUsername() == userSearch) {
             return (*itr).getUsername();
         }
@@ -186,6 +187,11 @@ string UserNetwork::search(string userSearch) {
 
 }
 
+
+list<User> & UserNetwork::getUserList() {
+
+    return users;
+}
 
 void UserNetwork::acceptRequest(User accepter, string username){
     // one user in a list gets data from another user in the list

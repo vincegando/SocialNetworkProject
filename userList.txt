@@ -1,46 +1,4 @@
-krishna|$||||sup|$||||Krishna Ling|$||||SJ
+krishna|$|sup|$|Krishna Ling|$|S
 
-|$||$||$|
-
-|$|||$|||$||
-
-|$||$||$|
-
-|$||||$||||$|||
-
-|$||$||$|
-
-|$|||$|||$||
-
-|$||$||$|
-
-vince|$||||hi|$||||Vince Gan|$||||Bel
-
-|$||$||$|
-
-|$|||$|||$||
-
-|$||$||$|
-
-|$||||$||||$|||
-
-|$||$||$|
-
-|$|||$|||$||
-
-|$||$||$|
-
-newguy|$|||newpass|$|||new guy|$|||belmont
-
-|$||$||$|
-
-|$|||$|||$||
-
-|$||$||$|
-
-test|$||testing|$||test case|$||test
-
-|$||$||$|
-
-bobby|$|bob|$|bob bobby|$|belmont
+vince|$|hi|$|Vince Gan|$|Be
 
