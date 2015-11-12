@@ -12,7 +12,7 @@ class WallPostResponse {
     WallPostResponse();
     WallPostResponse(string comment);
     ~WallPostResponse();
-    
+
 
 };
 
