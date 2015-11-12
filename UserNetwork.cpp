@@ -4,6 +4,7 @@
 
 #include "UserNetwork.h"
 #include <fstream>
+#include <cstddef>
 
 
 
@@ -131,7 +132,7 @@ void UserNetwork::WriteToFileUserList(){
     list<User>::iterator itr = users.begin();
     while (itr != users.end()) {
         temp = (*itr).userInfoString();
-        file << temp << endl;
+        file << temp;
         itr++;
     }
 

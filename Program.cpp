@@ -3,6 +3,8 @@
 //
 
 #include "Program.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -14,36 +16,35 @@ User* Program::getCurrentUser() {
 void Program::createNew(UserNetwork *database) {
     string password = "", username = "", fullName = "", city = "";
     cout << "Enter Username: ";    //new user
-    cin >> username;
+    getline(cin,username );;
     cout << "Enter Password: ";
-    cin >> password;
+    getline(cin, password );
     cout << "Enter Full Name: ";
-    cin.ignore();
-    cin.clear();
-    cin.sync();
     getline(cin, fullName);
     cout << "Enter city: ";
-    cin >> city;
+    getline(cin, city);
     database->addUser(username, password, fullName, city);
     currentUser = &(database->returnUser(username));
 }
 
 void Program::login(UserNetwork *database) {
 
-    int incorrect;
+    string incorrect;
     string username = "", password = "";
     cout << "Enter Username: ";    //login
-    cin >> username;
+    getline(cin, username);
+
+
     cout << "Enter Password: ";
-    cin >> password;
+    getline(cin, password);
     if (database->findUser(username, password) == 0) {
         currentUser = &(database->returnUser(username));
     }
     else {
         cout << "Username or password incorrect\n";
         cout << "Press 1 to try again, any other key to quit\n";
-        cin >> incorrect;
-        if (incorrect == 1) {
+        getline(cin, incorrect);
+        if (incorrect == "1") {
             login(database);
         }
         else {
@@ -56,22 +57,22 @@ void Program::login(UserNetwork *database) {
 void Program::editInfo(UserNetwork *database, int infoInput) {
     if(infoInput == 1) {
         cout << "Enter your new full name: ";
-        string fullName = "";
-        cin >> fullName;
+        string fullName;
+        getline(cin, fullName);
         currentUser->setFullName(fullName);
         cout << "Full name updated";
     }
     else if (infoInput == 2) {
         cout << "Enter your new password: ";
         string password = "";
-        cin >> password;
+        getline(cin, password);
         currentUser->setPassword(password);
         cout << "Password updated";
     }
     else if (infoInput == 3) {
         cout << "Enter your new city: ";
         string city = "";
-        cin >> city;
+        getline(cin, city);
         currentUser->setCity(city);
         cout << "City updated";
     }
@@ -83,7 +84,7 @@ void Program::editInfo(UserNetwork *database, int infoInput) {
 
 void Program::userOptions(UserNetwork *database) {
 
-    int loginInput, postNumber, infoInput;
+    string loginInput, postNumber, infoInput;
     string postContent = "", searchInput = "";
     cout << "Login Successful\n";
     cout << "\n";
@@ -96,8 +97,9 @@ void Program::userOptions(UserNetwork *database) {
     cout << "Press 7 to View Your Friend Requests\n";
     cout << "Press 8 to View Your Friend List\n";
     cout << "Press 9 to Logout\n";
-    cin >> loginInput;
-    switch (loginInput) {
+    getline(cin, loginInput);
+    int temp = stoi(loginInput);
+    switch (temp) {
         case 1:
             cout << "Wall Contents: \n";
             cout << "\n";
@@ -105,28 +107,28 @@ void Program::userOptions(UserNetwork *database) {
             break;
         case 2:
             cout << "What's on Your Mind?: ";
-            cin >> postContent;
+            getline(cin, postContent);
             currentUser->addWallPost(postContent);
             cout << "Post Created\n";
             break;
         case 3:
             cout << "Enter the post number you want to delete: ";
-            cin >> postNumber;
+            getline(cin, postNumber);
             //need to fix delete functions
             break;
         case 4:
             cout << "Press 1 to edit your full name\n";
             cout << "Press 2 to change your password\n";
             cout << "Press 3 to change your city\n";
-            cin >> infoInput;
-            editInfo(database, infoInput);
+            getline(cin, infoInput);
+            editInfo(database, stoi(infoInput));
         case 5:
             cout << "Profile will now be deleted\n";
             database->deleteUser(currentUser->getUsername());
             break;
         case 6:
             cout << "Enter the user you want to search for: ";
-            cin >> searchInput;
+            getline(cin, searchInput);
             database->search(searchInput);
             //database->sendRequest(currentUser, searchInput);
             break;
@@ -149,30 +151,46 @@ void Program::userOptions(UserNetwork *database) {
 }
 
 void Program::run() {
-    int userInput;
-    UserNetwork *database;
+    string userInput;
+    UserNetwork *database = new UserNetwork;
     database->readFromFile("./userList.txt");
 
     cout<<"Press 1 to Create a new User\n";
     cout<<"Press 2 to Login\n";
     cout<<"Press 3 to Quit\n";
-    cin >> userInput;
-    if (userInput == 1) {
+    getline( cin, userInput);
+    
+    int input = stoi(userInput);   // convert from string to int
+
+    switch(input){
+
+    
+    case 1:
         createNew(database);
         userOptions(database);
-    }
-    else if(userInput == 2) {
+    
+    case 2:
         login(database);
         userOptions(database);
-    }
-    else if (userInput == 3) {
+    
+    case 3:
         return;
-    }
-    else {
+    
+    default:
         cout << "Invalid input";
         run();
+
     }
-    database->WriteToFileUserList();
-    currentUser = NULL;
+}
+
+// MAIN
+int main(int argc, const char * argv[]){
+
+    Program runApp;
+    runApp.run();
+
+    return 0;
+
 
 }
+
