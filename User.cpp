@@ -99,12 +99,12 @@ void User::addWallPost(string post) {
 }
 
 
-list<string>  & User::getFriends() {
-    return friends;
+void User::addToFriendsList(string username){
+    friends.push_back(username);
 }
 
-list<string> & User::getRequests() {
-    return requests;
+void User::addToRequestsList(string username){
+    requests.push_back(username);
 }
 
 Wall* User::getWall(){

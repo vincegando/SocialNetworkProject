@@ -193,8 +193,18 @@ list<User> & UserNetwork::getUserList() {
     return users;
 }
 
-void UserNetwork::acceptRequest(User accepter, string username){
+void UserNetwork::acceptRequest(string accepter, string username){
     // one user in a list gets data from another user in the list
+
+    list<User>::iterator itr = users.begin();
+    while (itr != users.end()) {
+        if ((*itr).getUsername() == username) {
+            return;
+        }
+
+        itr++;
+    }
+
     // string currUsername = curr->getData().getUsername();
     // Node<User> *temp = users.returnHead();
     // while (temp->getNext() != NULL)  {
@@ -205,9 +215,20 @@ void UserNetwork::acceptRequest(User accepter, string username){
     // }
 }
 
-void UserNetwork::sendRequest(User sender, string username){
+void UserNetwork::sendRequest(string sender, string username){
     //send data from one user to another
-    // string currUsername = curr->getData().getUsername();
+    list<User>::iterator itr = users.begin();
+    while (itr != users.end()) {
+        if ((*itr).getUsername() == username) {
+            (*itr).addToRequestsList(sender);
+            return;
+        }
+
+        itr++;
+    }
+
+
+
     // Node<User> *temp = users.returnHead();
     // while (temp->getNext() != NULL) {
     //     if (temp->getData().getUsername() == username) {

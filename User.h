@@ -29,8 +29,8 @@ public:
     void addWallPost(string post);
     void deleteWallPost(int pos);
     string userInfoString();
-    list<string> & getFriends();
-    list<string> & getRequests();
+    void addToFriendsList(string username);
+    void addToRequestsList(string username);
 
     Wall* getWall();
 

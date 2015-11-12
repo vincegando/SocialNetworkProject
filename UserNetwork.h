@@ -28,8 +28,8 @@ public:
     //void refreshLists(std::string username);
 
     string search(string userSearch);
-    void acceptRequest(User accepter, string username);
-    void sendRequest(User sender, string username);
+    void acceptRequest(string accepter, string username);
+    void sendRequest(string sender, string username);
     list<User> & getUserList();
 
 private:
