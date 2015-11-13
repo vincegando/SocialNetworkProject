@@ -103,8 +103,32 @@ void User::addToFriendsList(string username){
     friends.push_back(username);
 }
 
+void User::deleteFromFriendsList(string username) {
+
+    list<string>::iterator itr = friends.begin();
+    while (itr != friends.end()) {
+        if ((*itr) == username) {
+            friends.erase(itr);
+        }
+
+        itr++;
+    }
+}
+
 void User::addToRequestsList(string username){
     requests.push_back(username);
+}
+
+void User::deleteFromRequestsList(string username) {
+
+    list<string>::iterator itr = requests.begin();
+    while (itr != requests.end()) {
+        if ((*itr) == username) {
+            requests.erase(itr);
+        }
+
+        itr++;
+    }
 }
 
 Wall* User::getWall(){

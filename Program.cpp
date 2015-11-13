@@ -134,11 +134,11 @@ void Program::userOptions(UserNetwork *database) {
             break;
         case 7:
             cout << "Your friend requests: \n";
-            currentUser->getRequests();                            //show requests
+            //currentUser->getRequests();                            //show requests
             break;
         case 8:
             cout << "Your friends: \n";
-            currentUser->getFriends();                                 //show friend list
+            //currentUser->getFriends();                                 //show friend list
             break;
         case 9:
             cout << "Logging out";

@@ -30,7 +30,9 @@ public:
     void deleteWallPost(int pos);
     string userInfoString();
     void addToFriendsList(string username);
+    void deleteFromFriendsList(string username);
     void addToRequestsList(string username);
+    void deleteFromRequestsList(string username);
 
     Wall* getWall();
 

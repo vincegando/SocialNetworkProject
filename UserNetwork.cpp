@@ -199,8 +199,13 @@ void UserNetwork::acceptRequest(string accepter, string username){
 
     list<User>::iterator itr = users.begin();
     while (itr != users.end()) {
+        if ((*itr).getUsername() == accepter) {
+            (*itr).addToFriendsList(username);
+            (*itr).deleteFromRequestsList(username);
+
+        }
         if ((*itr).getUsername() == username) {
-            return;
+            (*itr).addToFriendsList(accepter);
         }
 
         itr++;
