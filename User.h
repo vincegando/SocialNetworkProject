@@ -33,6 +33,8 @@ public:
     void deleteFromFriendsList(string username);
     void addToRequestsList(string username);
     void deleteFromRequestsList(string username);
+    string printFriendsList();
+    string printRequestsList();
 
     Wall* getWall();
 

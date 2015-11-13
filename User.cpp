@@ -131,6 +131,28 @@ void User::deleteFromRequestsList(string username) {
     }
 }
 
+string User::printFriendsList() {
+
+    string result = "";
+    list<string>::iterator itr = friends.begin();
+    while (itr != friends.end()) {
+        result = result + (*itr) + "\n";
+        itr++;
+    }
+    return result;
+}
+
+string User::printRequestsList() {
+
+    string result = "";
+    list<string>::iterator itr = requests.begin();
+    while (itr != requests.end()) {
+        result = result + (*itr) + "\n";
+        itr++;
+    }
+    return result;
+}
+
 Wall* User::getWall(){
     return wall;
 }

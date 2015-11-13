@@ -25,7 +25,7 @@ public:
 
     void WriteToFileUserList();
     void readFromFile(string file);
-    //void refreshLists(std::string username);
+
 
     User & search(string userSearch);
     void acceptRequest(string accepter, string username);

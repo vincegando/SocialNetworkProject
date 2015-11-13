@@ -201,7 +201,7 @@ void UserNetwork::acceptRequest(string accepter, string username){
     while (itr != users.end()) {
         if ((*itr).getUsername() == accepter) {
             (*itr).addToFriendsList(username);
-            (*itr).deleteFromRequestsList(username);
+            (*itr).deleteFromRequestsList(username);     //NEED TO WRITE TO FILE
 
         }
         if ((*itr).getUsername() == username) {
@@ -226,7 +226,7 @@ void UserNetwork::sendRequest(string sender, string username){
     list<User>::iterator itr = users.begin();
     while (itr != users.end()) {
         if ((*itr).getUsername() == username) {
-            (*itr).addToRequestsList(sender);
+            (*itr).addToRequestsList(sender);     //NEED TO WRITE TO FILE
             return;
         }
 
