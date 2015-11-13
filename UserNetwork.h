@@ -27,7 +27,7 @@ public:
     void readFromFile(string file);
     //void refreshLists(std::string username);
 
-    string search(string userSearch);
+    User & search(string userSearch);
     void acceptRequest(string accepter, string username);
     void sendRequest(string sender, string username);
     list<User> & getUserList();

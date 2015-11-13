@@ -163,17 +163,17 @@ void UserNetwork::readFromFile(string file){
     filename.close();
 }
 
-string UserNetwork::search(string userSearch) {
+User & UserNetwork::search(string userSearch) {
 
     list<User>::iterator itr = users.begin();
     while (itr != users.end()) {
         if ((*itr).getUsername() == userSearch) {
-            return (*itr).getUsername();
+            return returnUser(userSearch);
         }
 
         itr++;
     }
-    return "User not found";
+    return (*itr);
 
     // Node<User> *temp = users.returnHead();
     // int input = 0;
