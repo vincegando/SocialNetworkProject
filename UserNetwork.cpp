@@ -27,20 +27,6 @@ void UserNetwork::addUser(string un, string pass, string fn, string c) {
     User newUser(un,pass,fn,c);
     users.push_back(newUser);
 
-    // Node<User> *current = users.returnHead();
-    // while (current!= NULL){
-    //     if (current->getData().getUsername() == un){
-    //         cout << "Username exists"<< endl;
-    //         return;
-    //     }
-    //     current = current ->getNext();
-    // }
-
-    // User newUser(un,pass,fn,c);             //created a pointer to user node in usernetwork list
-    // users.push_back(newUser);
-    // cout << "user created"<< endl;
-    //                 // now add the new user to the usernetwork linkedlist
-
 }
 void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function may not work  - lot of logic to think
 
@@ -52,16 +38,6 @@ void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function
         }
         itr++;
     }
-
-    // Node<User> *current = users.returnHead();
-    // while (current->getNext() != NULL){
-    //     if (current->getData().getUsername() == un){
-    //         //users->remove(current->getData());  //need to fix
-    //         cout << "user deleted" << endl;
-    //     }
-    //     current = current ->getNext();
-    // }
-    // cout << "user not deleted" << endl;
 }
 
 int UserNetwork::findUser(string un, string pass) {
@@ -76,17 +52,6 @@ int UserNetwork::findUser(string un, string pass) {
     }
     cout << "User not found" << endl;
     return 1;
-
-    // Node<User> *current = users.returnHead();
-    // while (current->getNext()!= NULL){
-    //     if ((current->getData().getUsername() == un ) && (current->getData().getUsername() == pass)){
-    //         cout << "user found" << endl;
-    //         return 0;
-    //     }
-    //     current = current ->getNext();
-    // }
-    // cout << "user not found" << endl;
-    // return 1;
 }
 
 
@@ -99,17 +64,6 @@ User & UserNetwork::returnUser(string username) {
         }
         itr++;
     }
-
-    /*
-    Node<User> *current = users.returnHead();
-    while (current->getNext() != NULL) {
-        if (current->getData().getUsername() == username) {
-            return current;
-        }
-        current = current->getNext();
-    }
-    return current;   */
-
     return (*itr);
 }
 
@@ -135,16 +89,7 @@ void UserNetwork::WriteToFileUserList(){
         file << temp;
         itr++;
     }
-
-    // Node<User> *curr = users.returnHead();
-    // curr = curr->getNext();                                       //do something else
-    // while(curr->getNext()){
-    //     temp = curr->getData().userInfoString();
-    //     file << temp << endl;
-    //     curr = curr->getNext();                          // use "<<" to write to file
-    // }
-    
-     file.close();
+    file.close();
     
 }
 
@@ -159,7 +104,6 @@ void UserNetwork::readFromFile(string file){
         User newUser(temp);
         users.push_back(newUser);
     }
-
     filename.close();
 }
 
