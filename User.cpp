@@ -4,6 +4,8 @@
 
 #include "User.h"
 #include <sstream>
+#include "WallPost.h"
+#include "Wall.h"
 
 
 void User::setFullName(string fn) {
