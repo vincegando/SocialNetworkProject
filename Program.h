@@ -11,10 +11,10 @@
 class Program {
 
 public:
-    void createNew(UserNetwork * database);
-    void login(UserNetwork * database);
-    void editInfo(UserNetwork * database, int x);
-    void userOptions(UserNetwork * database);
+    void createNew();
+    void login();
+    void editInfo(int x);
+    void userOptions();
     void run();
     User* getCurrentUser();
 
@@ -25,7 +25,7 @@ public:
 private:
 
     User* currentUser;
-
+    UserNetwork database;
     UserNetwork users;
 
 };
