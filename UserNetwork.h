@@ -11,6 +11,7 @@
 #include <string>
 
 
+
 class UserNetwork {
 
 public:
@@ -20,7 +21,13 @@ public:
 
     void addUser(string un, string pass, string fn, string c);
     void deleteUser(string un);
-    int findUser(string un, string pass);
+
+    /****** Krishna's work - rehauled findUser() function  ********/
+
+    User & findUser(string USERNAME);
+
+    /***** end Krishna's work *******/
+
     User & returnUser(string username);   // ? return user at this position of this list
 
     void WriteToFileUserList();

@@ -5,7 +5,7 @@
 #include "UserNetwork.h"
 #include <fstream>
 #include <cstddef>
-
+#include "User.h"
 
 
 UserNetwork::UserNetwork() {
@@ -40,19 +40,29 @@ void UserNetwork::deleteUser(string un) {               // BEWARE: THIS function
     }
 }
 
-int UserNetwork::findUser(string un, string pass) {
+
+
+/********* KRISHNA'S work */
+
+User & UserNetwork::findUser(string USERNAME) {
 
     list<User>::iterator itr = users.begin();
     while (itr != users.end()) {
-        if (((*itr).getUsername() == un ) && ((*itr).getPassword() == pass)) {
+        if ((*itr).getUsername() == USERNAME ){
             cout << "User found" << endl;
-            return 0;
+            break;
         }
         itr++;
     }
-    cout << "User not found" << endl;
-    return 1;
+
+    if (itr == users.end() ){
+        cout << "Username doesnt exist" << endl;
+    }
+    return (*itr);
 }
+
+
+/***** end Krishna's work    */
 
 
 User & UserNetwork::returnUser(string username) {

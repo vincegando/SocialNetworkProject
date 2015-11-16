@@ -27,32 +27,53 @@ void Program::createNew(UserNetwork *database) {
     currentUser = &(database->returnUser(username));
 }
 
+
+/****** Krishnas's work *************/
+
 void Program::login(UserNetwork *database) {
 
-    string incorrect;
+
     string username = "", password = "";
     cout << "Enter Username: ";    //login
     getline(cin, username);
-
-
-    cout << "Enter Password: ";
+    User USERCOPY= database->findUser(username);       // see if user is in the database -> returns the User
+    cout << "Enter password: ";
     getline(cin, password);
-    if (database->findUser(username, password) == 0) {
-        currentUser = &(database->returnUser(username));
+
+    if (USERCOPY.getPassword() != password)                //if entered password doesnt match
+    {
+        cout << "Enter password again " << endl;
     }
-    else {
-        cout << "Username or password incorrect\n";
-        cout << "Press 1 to try again, any other key to quit\n";
-        getline(cin, incorrect);
-        if (incorrect == "1") {
-            login(database);
-        }
-        else {
-            exit(0);
-        }
-    }
+    USERCOPY.display();                                  // THIS is the offical way to login
+
+
+//    string incorrect;
+//    string username = "", password = "";
+//    cout << "Enter Username: ";    //login
+//    getline(cin, username);
+//
+//
+//    cout <"Enter Password: ";
+//    getline(cin, password);
+//    if (database->findUser(username, password) == 0) {
+//        currentUser = &(database->returnUser(username));
+//    }
+//    else {
+//        cout << "Username or password incorrect\n";
+//        cout << "Press 1 to try again, any other key to quit\n";
+//        getline(cin, incorrect);
+//        if (incorrect == "1") {
+//            login(database);
+//        }
+//        else {
+//            exit(0);
+//        }
+//    }
 
 }
+
+/* END KRISHNAS WORK */
+
 
 void Program::editInfo(UserNetwork *database, int infoInput) {
     if(infoInput == 1) {

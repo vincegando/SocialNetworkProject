@@ -18,9 +18,15 @@ public:
     void run();
     User* getCurrentUser();
 
+
+
+    // have a handler function that checks is currentuser is set to something
+
 private:
+
     User* currentUser;
 
+    UserNetwork users;
 
 };
 

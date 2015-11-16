@@ -9,6 +9,7 @@
 #include "Wall.h"
 #include <list>
 
+
 using namespace std;
 
 class User {
@@ -26,7 +27,7 @@ public:
     User();
     User(string un, string pass, string fn, string c);
     User(string userString);
-    void addWallPost(string post);
+    void addPosttoWall(WallPost post, string username );
     void deleteWallPost(int pos);
     string userInfoString();
     void addToFriendsList(string username);
@@ -37,6 +38,21 @@ public:
     string printRequestsList();
 
     Wall* getWall();
+
+    //*****************  Krishna work on Part 3 #2  **************
+
+    void addPostToWall(WallPost post, string username);
+    void display();
+
+    //
+
+    void deletePostfromFriendWall();
+    void deleteFriendPostfromMyWall();
+
+
+
+    //**************** End Krishna's work **************//
+
 
 
 

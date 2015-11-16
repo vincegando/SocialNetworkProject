@@ -93,10 +93,42 @@ string User::userInfoString(){
     return getUsername() + "|$|" + getPassword() + "|$|" + getFullName() + "|$|" + getCity() + "\n";
 }
 
-void User::addWallPost(string post) {
-    wall->newWallPost(post);
+
+/*********** KRISHNAS WEEKEND WORK ************/
+
+void User::addPostToWall(WallPost post, string username) {
+
+    Wall myWall;
+    myWall.readEntireWall(username);
+    string POST;
+    POST= post.getPost();
+    myWall.newWallPost(POST);
+    myWall.writeEntireWall();
+
+
+//    make wall of user
+//    readfromfile(userList.txt)
+//    take existing wallposts from file + newpost
+//    write back to userList.txt
+}
+
+void User::display() {
+    iterator itr = posts.begin();
+    int count = 1;
+    for ( ; itr!= posts.end(); itr++){
+        if (*itr.getParent ==0){
+            cout << count << endl;
+            cout << *itr.getPost() << endl;
+            count ++;
+        }
+    }
+
+//    This function is used such that when the User logs in, he or she can see all the posts and see each
+//    associated with a number ( and index) so then user can call delete post functions by passing in parameter
+//    of index of the specif post
 
 }
+
 
 
 void User::addToFriendsList(string username){
