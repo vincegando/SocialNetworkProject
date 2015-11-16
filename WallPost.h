@@ -26,6 +26,7 @@ public:
     time_t getPostTime();
     void setPostTime(time_t pt);
     string ReturnWallPost();
+    int getParent();
 
 private:
 
@@ -33,6 +34,8 @@ private:
     string post;
     string username;
 
+    int parent;
+    int index;
 
 
 

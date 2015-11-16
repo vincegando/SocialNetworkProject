@@ -118,7 +118,7 @@ void User::display() {
     iterator itr = posts.begin();
     int count = 1;
     for ( ; itr!= posts.end(); itr++){
-        if (*itr.getParent ==0){
+        if ((*itr).getParent() ==0){
             cout << count << endl;
             cout << *itr.getPost() << endl;
             count ++;
