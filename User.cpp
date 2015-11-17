@@ -104,7 +104,7 @@ void User::addPostToWall(WallPost post, string username) {
     myWall.readEntireWall(username);
     string POST;
     POST= post.getPost();
-    myWall.newWallPost(POST);
+    myWall.newWallPost(POST)
     myWall.writeEntireWall();
 
 
@@ -119,11 +119,13 @@ void User::display() {
     int count = 1;
     for ( ; itr!= wall->getList().end(); itr++){
         if ((*itr).getParent() ==0){
+
             cout << count << endl;
             cout << (*itr).getPost() << endl;
             count ++;
         }
     }
+
 
 //    This function is used such that when the User logs in, he or she can see all the posts and see each
 //    associated with a number ( and index) so then user can call delete post functions by passing in parameter
