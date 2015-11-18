@@ -45,8 +45,8 @@ public:
 
     //
 
-    void deletePostFromFriendWall();
-    void deleteFriendPostFromMyWall();
+    void deletePostFromFriendWall(int index);
+    void deleteFriendPostFromMyWall(int index);
 
 
 

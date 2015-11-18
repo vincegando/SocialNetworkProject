@@ -104,7 +104,7 @@ void User::addPostToWall(WallPost post, string username) {
     myWall.readEntireWall(username);
     string POST;
     POST= post.getPost();
-    myWall.newWallPost(POST)
+    myWall.newWallPost(POST);
     myWall.writeEntireWall();
 
 
@@ -133,8 +133,37 @@ void User::display() {
 
 }
 
+void deletePostFromFriendWall(int index){
 
+    list<string>::iterator itr;
+    int i =0;
+    for ( ;i<index; i++  ) {
+        itr++;
+        /* loop purpose: this will increment i to match the index of the post we want to delete
+        itr will stop looping through the wall and will stop on the wallpost with index match that we
+        want to delete */
+    }
 
+    itr->erase();
+    return;
+}
+
+void deleteFriendPostFromMyWall(int index)
+{
+    Wall myWall;
+    list<string>::iterator itr;
+    int i =0;
+    for ( ;i< index; i++  ) {
+        itr++;
+        /* loop purpose: this will increment i to match the index of the post we want to delete
+        itr will stop looping through the wall and will stop on the wallpost with index match that we
+        want to delete */
+    }
+
+    itr->erase();
+    myWall.writeEntireWall();
+
+}
 void User::addToFriendsList(string username){
     friends.push_back(username);
 }
