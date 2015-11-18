@@ -47,30 +47,6 @@ void Program::login() {       // put
     }
     USERCOPY.display();                                  // THIS is the offical way to login
 
-
-//    string incorrect;
-//    string username = "", password = "";
-//    cout << "Enter Username: ";    //login
-//    getline(cin, username);
-//
-//
-//    cout <"Enter Password: ";
-//    getline(cin, password);
-//    if (database->findUser(username, password) == 0) {
-//        currentUser = &(database->returnUser(username));
-//    }
-//    else {
-//        cout << "Username or password incorrect\n";
-//        cout << "Press 1 to try again, any other key to quit\n";
-//        getline(cin, incorrect);
-//        if (incorrect == "1") {
-//            login(database);
-//        }
-//        else {
-//            exit(0);
-//        }
-//    }
-
 }
 
 /* END KRISHNAS WORK */
@@ -198,7 +174,7 @@ void Program::run() {
         return;
     
     default:
-        cout << "Invalid input";
+        cout << "Invalid input" << endl;
         run();
 
     }

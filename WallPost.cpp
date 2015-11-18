@@ -25,6 +25,10 @@ string WallPost::getPost() {
   return post;
 }
 
+int WallPost::getParent() {
+  return parent;
+}
+
 void WallPost::setPost(string p) {
   post = p;
 }
