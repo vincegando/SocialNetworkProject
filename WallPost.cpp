@@ -18,9 +18,7 @@ WallPost::WallPost() {
 }
 
 WallPost::~WallPost() {
-  // post = "";
-  // username = "";
-  // postTime = NULL;
+
 }
 
 string WallPost::getPost() {
@@ -54,6 +52,12 @@ string WallPost::ReturnWallPost() {
   strftime(timeString, 50, "%I:%M%p", timedata);
 
   return getUsername() + "|$|"+ getPost() + "|$|"+ timeString + "\n";
+}
+
+void WallPost::addResponse(WallPostResponse comment) {
+
+  comments.push_back(comment);
+
 }
 
 

@@ -122,7 +122,7 @@ User & UserNetwork::search(string userSearch) {
     list<User>::iterator itr = users.begin();
     while (itr != users.end()) {
         if ((*itr).getUsername() == userSearch) {
-            return returnUser(userSearch);
+            return findUser(userSearch);
         }
 
         itr++;

@@ -8,6 +8,8 @@
 #include <string>
 #include <ctime>
 #include <iostream>
+#include <list>
+#include "WallPostResponse.h"
 
 
 
@@ -26,12 +28,14 @@ public:
     time_t getPostTime();
     void setPostTime(time_t pt);
     string ReturnWallPost();
+    void addResponse(WallPostResponse comment);
 
 private:
 
     time_t postTime;
     string post;
     string username;
+    list<WallPostResponse> comments;
 
 
 

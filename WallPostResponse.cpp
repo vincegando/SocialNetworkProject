@@ -5,14 +5,23 @@
 #include "WallPostResponse.h"
 
 
-WallPostResponse() {
+WallPostResponse::WallPostResponse() {
+	comment = "";
+    username = "";
+}
+
+WallPostResponse::WallPostResponse(string n, string u) {
+	comment = n;
+    username = u;
+}
+
+WallPostResponse::~WallPostResponse() {
 	
 }
 
-WallPostResponse(string comment) {
-	
+void WallPostResponse::addResponse(string c) {
+
+
+
 }
 
-~WallPostResponse() {
-	
-}

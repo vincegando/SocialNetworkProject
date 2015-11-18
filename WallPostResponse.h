@@ -9,9 +9,16 @@
 
 class WallPostResponse {
 
+public:
     WallPostResponse();
-    WallPostResponse(string comment);
+    WallPostResponse(string n, string u);
     ~WallPostResponse();
+    void addResponse(string c);
+
+private:
+    string comment;
+    string username;
+
 
 
 };
