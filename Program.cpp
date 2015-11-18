@@ -33,19 +33,23 @@ void Program::createNew() {
 void Program::login() {       // put
 
 
-    string username = "", password = "";
+    string username = "", password;
     cout << "Enter Username: ";    //login
     getline(cin, username);
     User USERCOPY= database.findUser(username);       // see if user is in the database -> returns the User
-    cout << "Enter password: ";
+    cout << "Enter password: " << endl;
     getline(cin, password);
 
-    while (USERCOPY.getPassword() != password)                //if entered password doesnt match
-    {
-        cout << "Enter password again " << endl;
-        getline(cin,password);
-    }
-    USERCOPY.display();                                  // THIS is the offical way to login
+//    if (password != USERCOPY.getPassword() ) {
+//        cout << "Password incorrect" << endl;
+//        login();
+//    }
+//    while (USERCOPY.getPassword() != password)                //if entered password doesnt match
+//    {
+//        cout << "Enter password again: " << endl;
+//        getline(cin,password);
+//    }
+    //USERCOPY.display();                                  // THIS is the offical way to login
 
 }
 
@@ -103,12 +107,14 @@ void Program::userOptions() {
             cout << "\n";
             cout << currentUser->getWall()->writeEntireWall();
             break;
-        case 2:
+        case 2: {
             cout << "What's on Your Mind?: ";
             getline(cin, postContent);
-            currentUser->addWallPost(postContent);
+            WallPost post(postContent);
+            currentUser->addPostToWall(post, currentUser->getUsername());
             cout << "Post Created\n";
             break;
+            }
         case 3:
             cout << "Enter the post number you want to delete: ";
             getline(cin, postNumber);
@@ -163,12 +169,12 @@ void Program::run() {
 
     
     case 1:
-        createNew(database);
-        userOptions(database);
+        createNew();
+        userOptions();
     
     case 2:
-        login(database);
-        userOptions(database);
+        login();
+        userOptions();
     
     case 3:
         return;
@@ -178,6 +184,8 @@ void Program::run() {
         run();
 
     }
+
+    database.WriteToFileUserList();
 }
 
 // MAIN

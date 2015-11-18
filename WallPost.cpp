@@ -11,6 +11,10 @@ WallPost::WallPost(string p, string u, time_t pt){
   postTime = pt;
 }
 
+WallPost::WallPost(string p) {
+  post = p;
+}
+
 WallPost::WallPost() {
   post = "";
   username = "";

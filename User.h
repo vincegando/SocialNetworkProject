@@ -27,7 +27,6 @@ public:
     User();
     User(string un, string pass, string fn, string c);
     User(string userString);
-    void addPosttoWall(WallPost post, string username );
     void deleteWallPost(int pos);
     string userInfoString();
     void addToFriendsList(string username);
@@ -46,8 +45,8 @@ public:
 
     //
 
-    void deletePostfromFriendWall();
-    void deleteFriendPostfromMyWall();
+    void deletePostFromFriendWall();
+    void deleteFriendPostFromMyWall();
 
 
 

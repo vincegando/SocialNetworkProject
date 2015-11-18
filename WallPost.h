@@ -19,6 +19,7 @@ class WallPost {
 
 public:
     WallPost(string p, string u, time_t pt);
+    WallPost(string p);
     WallPost();
     ~WallPost();
     string getPost();
@@ -28,11 +29,8 @@ public:
     time_t getPostTime();
     void setPostTime(time_t pt);
     string ReturnWallPost();
-<<<<<<< HEAD
     void addResponse(WallPostResponse comment);
-=======
     int getParent();
->>>>>>> 9253a5c16c14e826c028aa69c61129e5b028df9d
 
 private:
 

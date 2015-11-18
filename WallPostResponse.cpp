@@ -10,7 +10,7 @@ WallPostResponse::WallPostResponse() {
     username = "";
 }
 
-WallPostResponse::WallPostResponse(string n, string u) {
+WallPostResponse::WallPostResponse(std::string n, std::string u) {
 	comment = n;
     username = u;
 }
@@ -19,7 +19,7 @@ WallPostResponse::~WallPostResponse() {
 	
 }
 
-void WallPostResponse::addResponse(string c) {
+void WallPostResponse::addResponse(std::string c) {
 
 
 

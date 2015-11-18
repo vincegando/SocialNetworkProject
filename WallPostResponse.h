@@ -11,13 +11,13 @@ class WallPostResponse {
 
 public:
     WallPostResponse();
-    WallPostResponse(string n, string u);
+    WallPostResponse(std::string n, std::string u);
     ~WallPostResponse();
-    void addResponse(string c);
+    void addResponse(std::string c);
 
 private:
-    string comment;
-    string username;
+    std::string comment;
+    std::string username;
 
 
 

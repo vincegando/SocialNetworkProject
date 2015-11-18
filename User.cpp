@@ -115,12 +115,12 @@ void User::addPostToWall(WallPost post, string username) {
 }
 
 void User::display() {
-    iterator itr = posts.begin();
+    list<WallPost>::iterator itr = wall->getList().begin();
     int count = 1;
-    for ( ; itr!= posts.end(); itr++){
+    for ( ; itr!= wall->getList().end(); itr++){
         if ((*itr).getParent() ==0){
             cout << count << endl;
-            cout << *itr.getPost() << endl;
+            cout << (*itr).getPost() << endl;
             count ++;
         }
     }
