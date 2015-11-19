@@ -19,9 +19,4 @@ WallPostResponse::~WallPostResponse() {
 	
 }
 
-void WallPostResponse::addResponse(std::string c) {
-
-
-
-}
 

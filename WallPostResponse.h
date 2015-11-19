@@ -13,7 +13,6 @@ public:
     WallPostResponse();
     WallPostResponse(std::string n, std::string u);
     ~WallPostResponse();
-    void addResponse(std::string c);
 
 private:
     std::string comment;

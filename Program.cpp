@@ -87,7 +87,7 @@ void Program::editInfo(int infoInput) {
 void Program::userOptions() {
 
     string loginInput, postNumber, infoInput;
-    string postContent = "", searchInput = "";
+    string postContent, searchInput, commentText;
     cout << "Login Successful\n";
     cout << "\n";
     cout << "Press 1 to show Wall\n";
@@ -98,7 +98,8 @@ void Program::userOptions() {
     cout << "Press 6 to Search for a User\n";
     cout << "Press 7 to View Your Friend Requests\n";
     cout << "Press 8 to View Your Friend List\n";
-    cout << "Press 9 to Logout\n";
+    cout << "Press 9 to Comment on a Wall Post\n";
+    cout << "Press 0 to Logout\n";
     getline(cin, loginInput);
     int temp = stoi(loginInput);
     switch (temp) {
@@ -144,9 +145,15 @@ void Program::userOptions() {
             cout << "Your friends: \n";
             //currentUser->getFriends();                                 //show friend list
             break;
-        case 9:
+        case 9: {
+            cout << "Type response here: " << endl;
+            getline(cin, commentText);
+            WallPostResponse comment(commentText, currentUser->getUsername());
+            currentUser->getWall()->getList().front().addResponse(comment);
+        }
+        case 0:
             cout << "Logging out";
-            exit(0);     //log out
+            break;     //log out
         default:
             cout << "Error: Bad Input\n";
             break;
