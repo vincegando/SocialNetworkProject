@@ -23,10 +23,29 @@ void GraphofFriends::addVertex(string & item) {
     return;
 }
 
-void GraphofFriends::addEdge(string &prev, string &next,
-                             GraphofFriends::degreeofSep) {
+void GraphofFriends::addEdge(string &prev, string &next, int degreeofSeperation) {
 
 }
+
+*********** Degree of Seperation ***************
+NODE = (a);
+NODE1 = (b);
+int count = 1;
+
+if (NODE = successors(NODE1))
+    if (intersects(NODE, NODE1)) {
+        return count;
+    }
+    count += 1;
+    NODE = successors(NODE1);
+    if (intersects(NODE1, NODE)) {
+        return count;
+    }
+    count += 1;
+}
+
+
+***********************************************
  */
 
 
