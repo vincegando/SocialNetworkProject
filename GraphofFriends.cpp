@@ -10,7 +10,7 @@ GraphofFriends::GraphofFriends() {
 }
 
 GraphofFriends::~GraphofFriends() {
-    delete GraphofFriends;
+
 }
 
 void GraphofFriends::addVertex(string & item) {
